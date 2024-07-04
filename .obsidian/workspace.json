@@ -117,7 +117,7 @@
               "state": {
                 "file": "如何使用GIt-OBsidian.md",
                 "linksCollapsed": false,
-                "unlinkedCollapsed": true
+                "unlinkedCollapsed": false
               }
             }
           },
@@ -142,7 +142,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -158,12 +159,12 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "7525bee44d69ca09",
+  "active": "150bb863465a11dd",
   "lastOpenFiles": [
-    "图库/如何使用.png",
-    "图库/如何使用这个插件.png",
     "欢迎.md",
     "如何使用GIt-OBsidian.md",
+    "图库/如何使用.png",
+    "图库/如何使用这个插件.png",
     "图库/Pasted image 20240704055915.png",
     "创建链接.md",
     "测试提交.md",
