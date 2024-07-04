@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "UI/未命名.md",
+                "file": "UI/色卡.md",
                 "mode": "source",
                 "source": false
               }
@@ -110,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "UI/未命名.md",
+                "file": "UI/色卡.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "UI/未命名.md",
+                "file": "UI/色卡.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -150,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "UI/未命名.md"
+                "file": "UI/色卡.md"
               }
             }
           }
@@ -171,10 +171,11 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "88dadf5cd257ef96",
+  "active": "1ab5844bcd2cd813",
   "lastOpenFiles": [
+    "图库/181818.png",
     "如何使用GIt-OBsidian.md",
-    "UI/未命名.md",
+    "UI/色卡.md",
     "UI",
     "欢迎.md",
     "图库/如何使用.png",
