@@ -42,9 +42,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "7e2de80ee051df6c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "flutter的插件学习/permission_handler 管理设备权限.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -110,7 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "UI/色卡.md",
+                "file": "flutter的插件学习/permission_handler 管理设备权限.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +139,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "UI/色卡.md",
+                "file": "flutter的插件学习/permission_handler 管理设备权限.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -150,7 +162,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "UI/色卡.md"
+                "file": "flutter的插件学习/permission_handler 管理设备权限.md"
               }
             }
           }
@@ -171,12 +183,14 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "1ab5844bcd2cd813",
+  "active": "7e2de80ee051df6c",
   "lastOpenFiles": [
+    "UI/色卡.md",
+    "flutter的插件学习/permission_handler 管理设备权限.md",
+    "flutter的插件学习",
     "图库/矩形 10.png",
     "图库/181818.png",
     "如何使用GIt-OBsidian.md",
-    "UI/色卡.md",
     "UI",
     "欢迎.md",
     "图库/如何使用.png",
@@ -191,7 +205,6 @@
     "图库/gradle清空.png",
     "图库/gradle路径.png",
     "图库/对应的路径.png",
-    "图库/这里为版本.png",
     "问题解决文件夹",
     "图库"
   ]
