@@ -7,3 +7,9 @@
 # 学习路径
 ## 用途
 该插件是用来管理设备权限的控制,比如允许使用照相机,录音等
+## 用法(针对安卓)
+首先是配置安卓权限
+在 `AndroidManifest.xml` 中添加需要请求的权限。例如：
+```
+<uses-permission android:name="android.permission.CAMERA" /> <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+```

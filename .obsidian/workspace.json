@@ -49,7 +49,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "问题解决文件夹/gradle下载失败的解决方法.md",
+                "file": "flutter的插件学习/permission_handler 管理设备权限.md",
                 "mode": "source",
                 "source": false
               }
@@ -122,7 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "问题解决文件夹/gradle下载失败的解决方法.md",
+                "file": "flutter的插件学习/permission_handler 管理设备权限.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -139,7 +139,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "问题解决文件夹/gradle下载失败的解决方法.md",
+                "file": "flutter的插件学习/permission_handler 管理设备权限.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -162,7 +162,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "问题解决文件夹/gradle下载失败的解决方法.md"
+                "file": "flutter的插件学习/permission_handler 管理设备权限.md"
               }
             }
           }
@@ -183,8 +183,9 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "7e2de80ee051df6c",
+  "active": "150bb863465a11dd",
   "lastOpenFiles": [
+    "问题解决文件夹/gradle下载失败的解决方法.md",
     "图库/gradle问题解决2.2.png",
     "图库/gradle问题解决2.png",
     "flutter的插件学习/permission_handler 管理设备权限.md",
@@ -200,12 +201,10 @@
     "图库/Pasted image 20240704055915.png",
     "创建链接.md",
     "测试提交.md",
-    "问题解决文件夹/gradle下载失败的解决方法.md",
     "问题解决文件夹/打包碰到的坑.md",
     "图库/打包遇到的坑1.png",
     "图库/打包遇到的坑2.png",
     "图库/gradle清空.png",
-    "图库/gradle路径.png",
     "问题解决文件夹",
     "图库"
   ]
