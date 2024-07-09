@@ -49,7 +49,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "flutter的插件学习/permission_handler 管理设备权限.md",
+                "file": "问题解决文件夹/gradle下载失败的解决方法.md",
                 "mode": "source",
                 "source": false
               }
@@ -122,7 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "flutter的插件学习/permission_handler 管理设备权限.md",
+                "file": "问题解决文件夹/gradle下载失败的解决方法.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -139,7 +139,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "flutter的插件学习/permission_handler 管理设备权限.md",
+                "file": "问题解决文件夹/gradle下载失败的解决方法.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -162,7 +162,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "flutter的插件学习/permission_handler 管理设备权限.md"
+                "file": "问题解决文件夹/gradle下载失败的解决方法.md"
               }
             }
           }
@@ -185,8 +185,8 @@
   },
   "active": "7e2de80ee051df6c",
   "lastOpenFiles": [
-    "UI/色卡.md",
     "flutter的插件学习/permission_handler 管理设备权限.md",
+    "UI/色卡.md",
     "flutter的插件学习",
     "图库/矩形 10.png",
     "图库/181818.png",
