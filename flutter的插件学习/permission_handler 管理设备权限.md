@@ -9,6 +9,7 @@
 该插件是用来管理设备权限的控制,比如允许使用照相机,录音等
 ## 用法(针对安卓)
 ### 首先是配置安卓权限
+
   在 `AndroidManifest.xml` 中添加需要请求的权限。例如:
 ```
 <uses-permission android:name="android.permission.CAMERA" />
@@ -17,7 +18,8 @@
 ```
 
 ### 然后在代码里调用`permission_handler`提供的API:
-请求单个权限
+
+#### 请求单个权限
 ```
 // 请求单个权限
 Future<void> requestCameraPermission() async {
@@ -29,8 +31,7 @@ Future<void> requestCameraPermission() async {
 }
 ```
 
-请求多个权限
-
+#### 请求多个权限
 ```
 Future<void> requestMultiplePermissions() async {
   Map<Permission, PermissionStatus> statuses = await [
@@ -52,4 +53,93 @@ Future<void> requestMultiplePermissions() async {
 }
 ```
 
+#### 检查权限状态
+```
+Future<void> checkPermissions() async {
+  if (await Permission.camera.isGranted) {
+    // 相机权限已授予
+  } else if (await Permission.camera.isDenied) {
+    // 相机权限被拒绝
+  } else if (await Permission.camera.isPermanentlyDenied) {
+    // 相机权限被永久拒绝，需要打开应用设置手动授予
+    openAppSettings();
+  }
+}
 
+```
+## 实例
+
+
+```
+import 'package:flutter/material.dart';
+import 'package:permission_handler/permission_handler.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: PermissionExample(),
+    );
+  }
+}
+
+class PermissionExample extends StatefulWidget {
+  @override
+  _PermissionExampleState createState() => _PermissionExampleState();
+}
+
+class _PermissionExampleState extends State<PermissionExample> {
+  Future<void> _checkAndRequestCameraPermission() async {
+    if (await Permission.camera.isGranted) {
+      // 相机权限已授予
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Camera permission granted')),
+      );
+    } else if (await Permission.camera.isDenied) {
+      // 请求相机权限
+      PermissionStatus status = await Permission.camera.request();
+      if (status.isGranted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Camera permission granted')),
+        );
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Camera permission denied')),
+        );
+      }
+    } else if (await Permission.camera.isPermanentlyDenied) {
+      // 相机权限被永久拒绝，引导用户打开设置
+      bool opened = await openAppSettings();
+      if (opened) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Opened app settings')),
+        );
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Failed to open app settings')),
+        );
+      }
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Permission Handler Example'),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: _checkAndRequestCameraPermission,
+          child: Text('Check Camera Permission'),
+        ),
+      ),
+    );
+  }
+}
+
+```
