@@ -25,14 +25,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "flutter的插件学习/path_provider 路径管理.md",
+                "file": "flutter的插件学习/flutter_sound 播放和录音.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "d435c29ee5e55dbc",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "案例合集/录音播放.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -61,7 +73,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#path_provider",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -78,7 +90,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -98,7 +111,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "flutter的插件学习/path_provider 路径管理.md",
+                "file": "案例合集/录音播放.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +128,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "flutter的插件学习/path_provider 路径管理.md",
+                "file": "案例合集/录音播放.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -138,7 +151,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "flutter的插件学习/path_provider 路径管理.md"
+                "file": "案例合集/录音播放.md"
               }
             }
           }
@@ -159,12 +172,14 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "4d41bde73b67556f",
+  "active": "5b87523a0b8faf29",
   "lastOpenFiles": [
+    "flutter的插件学习/flutter_sound 播放和录音.md",
+    "案例合集/录音播放.md",
+    "案例合集",
     "flutter的插件学习/permission_handler 管理设备权限.md",
     "flutter的插件学习/path_provider 路径管理.md",
     "图库/path_provider支持的平台和路径.png",
-    "flutter的插件学习/flutter_sound 播放和录音.md",
     "问题解决文件夹/gradle下载失败的解决方法.md",
     "图库/gradle问题解决2.2.png",
     "图库/gradle问题解决2.png",
