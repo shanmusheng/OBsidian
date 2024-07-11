@@ -25,13 +25,14 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "flutter的插件学习/permission_handler 管理设备权限.md",
+                "file": "案例合集/录音播放.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -97,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "flutter的插件学习/flutter_sound 播放和录音.md",
+                "file": "案例合集/录音播放.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "flutter的插件学习/flutter_sound 播放和录音.md",
+                "file": "案例合集/录音播放.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -137,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "flutter的插件学习/flutter_sound 播放和录音.md"
+                "file": "案例合集/录音播放.md"
               }
             }
           }
@@ -158,7 +159,7 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "0e8329e1f0769e1c",
+  "active": "18800ee70180b033",
   "lastOpenFiles": [
     "flutter的插件学习/permission_handler 管理设备权限.md",
     "flutter的插件学习/flutter_sound 播放和录音.md",
