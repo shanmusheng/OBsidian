@@ -48,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#audioplayers",
+                "query": "tag:#flutter_sound",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
