@@ -149,6 +149,8 @@
   },
   "active": "0e8329e1f0769e1c",
   "lastOpenFiles": [
+    "图库/录音播放的准备工作1.2.png",
+    "图库/录音播放案例的准备工作1.1.png",
     "flutter的插件学习/provider 状态管理.md",
     "flutter的插件学习/permission_handler 管理设备权限.md",
     "flutter的插件学习/path_provider 路径管理.md",
@@ -174,7 +176,6 @@
     "测试提交.md",
     "问题解决文件夹/打包碰到的坑.md",
     "图库/打包遇到的坑1.png",
-    "图库/打包遇到的坑2.png",
     "问题解决文件夹",
     "图库"
   ]
