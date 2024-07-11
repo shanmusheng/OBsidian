@@ -18,3 +18,4 @@ Flutter Sound 可用于播放从资产一直到实现完整媒体播放器的哔
 该库在 Mozilla 公共许可证 MPL2.0 下发布。
 
 如果您的 App 将受 GPL 许可证的约束， 您可能要考虑使用 GPL [Tau Sound Project 9.0](https://pub.dev/packages/tau_sound)：与 Flutter Sound 8.3 相比，Tau Sound 9.0 提供了多项增强功能。
+# 学习路径
