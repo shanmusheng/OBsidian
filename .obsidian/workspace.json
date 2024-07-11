@@ -130,7 +130,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -146,7 +146,7 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "b27d8e69cf4d6217",
+  "active": "80100735e1862cc0",
   "lastOpenFiles": [
     "path_provider.md",
     "案例合集/录音播放.md",
