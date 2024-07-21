@@ -29,8 +29,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -96,7 +95,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图库/录音播放实现效果1.1.png",
+                "file": "案例合集/录音播放.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -113,7 +112,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图库/录音播放实现效果1.1.png",
+                "file": "案例合集/录音播放.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -136,7 +135,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图库/录音播放实现效果1.1.png"
+                "file": "案例合集/录音播放.md"
               }
             }
           }
@@ -157,8 +156,9 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "d5c65567c714c84f",
+  "active": "b27d8e69cf4d6217",
   "lastOpenFiles": [
+    "图库/录音播放实现效果1.1.png",
     "案例合集/录音播放.md",
     "UI/色卡.md",
     "flutter的插件学习/audioplayers 音频播放.md",
@@ -171,7 +171,6 @@
     "path_provider.md",
     "打.md",
     "图库/录音播放实现效果1.2.png",
-    "图库/录音播放实现效果1.1.png",
     "图库/录音播放的准备工作1.2.png",
     "图库/录音播放案例的准备工作1.1.png",
     "案例合集",
