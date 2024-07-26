@@ -4,43 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "7e8b8832781d4e32",
+        "id": "338680c205dfc947",
         "type": "tabs",
         "children": [
           {
-            "id": "b27d8e69cf4d6217",
+            "id": "c5863fd0b9b96b46",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "案例合集/录音播放.md",
+                "file": "UI/版型设计-文字.md",
                 "mode": "source",
                 "source": false
               }
             }
-          },
-          {
-            "id": "22b53a9378bb4f3f",
-            "type": "leaf",
-            "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.6.7"
-              }
-            }
-          },
-          {
-            "id": "d5c65567c714c84f",
-            "type": "leaf",
-            "state": {
-              "type": "image",
-              "state": {
-                "file": "图库/录音播放实现效果1.1.png"
-              }
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -106,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "案例合集/录音播放.md",
+                "file": "UI/版型设计-文字.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -123,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "案例合集/录音播放.md",
+                "file": "UI/版型设计-文字.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -146,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "案例合集/录音播放.md"
+                "file": "UI/版型设计-文字.md"
               }
             }
           }
@@ -167,11 +146,22 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "22b53a9378bb4f3f",
+  "active": "c5863fd0b9b96b46",
   "lastOpenFiles": [
-    "图库/录音播放实现效果1.1.png",
-    "案例合集/录音播放.md",
+    "UI/图库/Pasted image 20240726131648.png",
+    "UI/图库/Pasted image 20240726131539.png",
+    "UI/图库/Pasted image 20240726131333.png",
+    "UI/图库/Pasted image 20240726131131.png",
+    "UI/图库/Pasted image 20240726131038.png",
     "UI/色卡.md",
+    "UI/版型设计-文字.md",
+    "案例合集/未命名.md",
+    "UI/图库",
+    "案例合集/图库",
+    "问题解决文件夹/图库",
+    "flutter的插件学习/图库",
+    "案例合集/录音播放.md",
+    "图库/录音播放实现效果1.1.png",
     "flutter的插件学习/audioplayers 音频播放.md",
     "flutter的插件学习/provider 状态管理.md",
     "flutter的插件学习/speech_to_text 语音转文字.md",
@@ -187,11 +177,7 @@
     "案例合集",
     "图库/path_provider支持的平台和路径.png",
     "问题解决文件夹/gradle下载失败的解决方法.md",
-    "图库/gradle问题解决2.2.png",
-    "图库/gradle问题解决2.png",
     "flutter的插件学习",
-    "图库/矩形 10.png",
-    "图库/181818.png",
     "如何使用GIt-OBsidian.md",
     "UI",
     "欢迎.md",
