@@ -20,6 +20,16 @@
             }
           },
           {
+            "id": "22b53a9378bb4f3f",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.6.7"
+              }
+            }
+          },
+          {
             "id": "d5c65567c714c84f",
             "type": "leaf",
             "state": {
@@ -29,7 +39,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -156,7 +167,7 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "b27d8e69cf4d6217",
+  "active": "22b53a9378bb4f3f",
   "lastOpenFiles": [
     "图库/录音播放实现效果1.1.png",
     "案例合集/录音播放.md",
