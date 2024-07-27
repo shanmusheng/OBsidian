@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "UI/版型设计-文字.md",
+                "file": "案例合集/滑动互动广告/滑动互动广告.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "UI/版型设计-文字.md",
+                "file": "案例合集/滑动互动广告/滑动互动广告.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "UI/版型设计-文字.md",
+                "file": "案例合集/滑动互动广告/滑动互动广告.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "UI/版型设计-文字.md"
+                "file": "案例合集/滑动互动广告/滑动互动广告.md"
               }
             }
           }
@@ -148,6 +148,11 @@
   },
   "active": "c5863fd0b9b96b46",
   "lastOpenFiles": [
+    "案例合集/录音播放.md",
+    "案例合集/滑动互动广告/滑动互动广告.md",
+    "案例合集/滑动互动广告/图库",
+    "UI/版型设计-文字.md",
+    "案例合集/滑动互动广告",
     "UI/图库/Pasted image 20240726165053.png",
     "UI/图库/Pasted image 20240726165045.png",
     "UI/图库/Pasted image 20240726165031.png",
@@ -158,15 +163,12 @@
     "UI/图库/Pasted image 20240726164914.png",
     "UI/图库/Pasted image 20240726164907.png",
     "UI/图库/Pasted image 20240726164901.png",
-    "UI/图库/Pasted image 20240726164800.png",
     "UI/色卡.md",
-    "UI/版型设计-文字.md",
     "案例合集/未命名.md",
     "UI/图库",
     "案例合集/图库",
     "问题解决文件夹/图库",
     "flutter的插件学习/图库",
-    "案例合集/录音播放.md",
     "flutter的插件学习/audioplayers 音频播放.md",
     "flutter的插件学习/provider 状态管理.md",
     "flutter的插件学习/speech_to_text 语音转文字.md",
@@ -184,7 +186,6 @@
     "创建链接.md",
     "测试提交.md",
     "问题解决文件夹/打包碰到的坑.md",
-    "问题解决文件夹",
-    "图库"
+    "问题解决文件夹"
   ]
 }
