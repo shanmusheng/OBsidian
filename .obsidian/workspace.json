@@ -11,9 +11,11 @@
             "id": "c5863fd0b9b96b46",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "案例合集/滑动互动广告/图库/PixPin_2024-07-27_23-39-15.gif"
+                "file": "案例合集/滑动互动广告/滑动互动广告.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
@@ -83,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "案例合集/滑动互动广告/图库/PixPin_2024-07-27_23-39-15.gif",
+                "file": "案例合集/滑动互动广告/滑动互动广告.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -100,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "案例合集/滑动互动广告/图库/PixPin_2024-07-27_23-39-15.gif",
+                "file": "案例合集/滑动互动广告/滑动互动广告.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -123,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "案例合集/滑动互动广告/图库/PixPin_2024-07-27_23-39-15.gif"
+                "file": "案例合集/滑动互动广告/滑动互动广告.md"
               }
             }
           }
@@ -144,16 +146,16 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "88dadf5cd257ef96",
+  "active": "c5863fd0b9b96b46",
   "lastOpenFiles": [
-    "案例合集/滑动互动广告/滑动互动广告.md",
-    "案例合集/滑动互动广告/图库/recording.gif",
+    "案例合集/滑动互动广告/图库/Pasted image 20240731004358.png",
     "案例合集/滑动互动广告/图库/Pasted image 20240804153031.png",
     "案例合集/滑动互动广告/图库/Pasted image 20240804150503.png",
     "案例合集/滑动互动广告/图库/Pasted image 20240731134531.png",
     "案例合集/滑动互动广告/图库/Pasted image 20240731133827.png",
-    "案例合集/滑动互动广告/图库/Pasted image 20240731004358.png",
+    "案例合集/滑动互动广告/滑动互动广告.md",
     "案例合集/滑动互动广告/图库/PixPin_2024-07-27_23-39-15.gif",
+    "案例合集/滑动互动广告/图库/recording.gif",
     "案例合集/录音播放.md",
     "案例合集/滑动互动广告/图库",
     "UI/版型设计-文字.md",
