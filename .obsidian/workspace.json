@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "flutter的插件学习/flutter_screenutil适配管理.md",
+                "file": "莫纳莫纳存放/关于首页的底部border问题.md",
                 "mode": "source",
                 "source": false
               }
@@ -81,8 +81,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "4b6d1017edcd8f29",
@@ -98,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "flutter的插件学习/flutter_screenutil适配管理.md",
+                "file": "莫纳莫纳存放/关于首页的底部border问题.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "flutter的插件学习/flutter_screenutil适配管理.md",
+                "file": "莫纳莫纳存放/关于首页的底部border问题.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -138,7 +137,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "flutter的插件学习/flutter_screenutil适配管理.md"
+                "file": "莫纳莫纳存放/关于首页的底部border问题.md"
               }
             }
           }
@@ -161,8 +160,12 @@
   },
   "active": "c5863fd0b9b96b46",
   "lastOpenFiles": [
-    "flutter的插件学习/audioplayers 音频播放.md",
+    "莫纳莫纳存放/图库/Pasted image 20240920052503.png",
+    "莫纳莫纳存放/图库/Pasted image 20240920052424.png",
+    "莫纳莫纳存放/图库/Pasted image 20240920052352.png",
     "flutter的插件学习/flutter_screenutil适配管理.md",
+    "莫纳莫纳存放/关于首页的底部border问题.md",
+    "flutter的插件学习/audioplayers 音频播放.md",
     "flutter的插件学习/图库/PixPin_2024-09-19_21-26-09.gif",
     "flutter的插件学习/图库/Pasted image 20240919215226.png",
     "flutter的插件学习/图库/Pasted image 20240919215050.png",
@@ -180,8 +183,6 @@
     "flutter的插件学习/provider 状态管理.md",
     "案例合集/滑动互动广告/图库/Pasted image 20240731004358.png",
     "案例合集/滑动互动广告/图库/Pasted image 20240804153031.png",
-    "案例合集/滑动互动广告/图库/Pasted image 20240804150503.png",
-    "案例合集/滑动互动广告/图库/Pasted image 20240731134531.png",
     "案例合集/滑动互动广告/图库",
     "UI/版型设计-文字.md",
     "案例合集/滑动互动广告",
