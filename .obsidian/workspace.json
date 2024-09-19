@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "案例合集/滑动互动广告/滑动互动广告.md",
+                "file": "莫纳莫纳存放/首页的addDevice.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "案例合集/滑动互动广告/滑动互动广告.md",
+                "file": "莫纳莫纳存放/首页的addDevice.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "案例合集/滑动互动广告/滑动互动广告.md",
+                "file": "莫纳莫纳存放/首页的addDevice.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "案例合集/滑动互动广告/滑动互动广告.md"
+                "file": "莫纳莫纳存放/首页的addDevice.md"
               }
             }
           }
@@ -148,8 +148,13 @@
   },
   "active": "c5863fd0b9b96b46",
   "lastOpenFiles": [
-    "flutter的插件学习/provider 状态管理.md",
+    "莫纳莫纳存放/图库/Pasted image 20240919130058.png",
+    "莫纳莫纳存放/图库/Pasted image 20240919130046.png",
+    "莫纳莫纳存放/图库",
     "案例合集/滑动互动广告/滑动互动广告.md",
+    "莫纳莫纳存放/首页的addDevice.md",
+    "莫纳莫纳存放",
+    "flutter的插件学习/provider 状态管理.md",
     "案例合集/滑动互动广告/图库/Pasted image 20240731004358.png",
     "案例合集/滑动互动广告/图库/Pasted image 20240804153031.png",
     "案例合集/滑动互动广告/图库/Pasted image 20240804150503.png",
@@ -163,7 +168,6 @@
     "案例合集/滑动互动广告",
     "UI/图库/Pasted image 20240726165053.png",
     "UI/图库/Pasted image 20240726165045.png",
-    "UI/图库/Pasted image 20240726165031.png",
     "UI/色卡.md",
     "案例合集/未命名.md",
     "UI/图库",
@@ -181,11 +185,9 @@
     "问题解决文件夹/gradle下载失败的解决方法.md",
     "flutter的插件学习",
     "如何使用GIt-OBsidian.md",
-    "UI",
     "欢迎.md",
     "创建链接.md",
     "测试提交.md",
-    "问题解决文件夹/打包碰到的坑.md",
-    "问题解决文件夹"
+    "问题解决文件夹/打包碰到的坑.md"
   ]
 }
