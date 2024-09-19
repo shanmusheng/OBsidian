@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "莫纳莫纳存放/首页的addDevice.md",
+                "file": "flutter的插件学习/path_provider 路径管理.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "莫纳莫纳存放/首页的addDevice.md",
+                "file": "flutter的插件学习/path_provider 路径管理.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "莫纳莫纳存放/首页的addDevice.md",
+                "file": "flutter的插件学习/path_provider 路径管理.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "莫纳莫纳存放/首页的addDevice.md"
+                "file": "flutter的插件学习/path_provider 路径管理.md"
               }
             }
           }
@@ -148,11 +148,12 @@
   },
   "active": "c5863fd0b9b96b46",
   "lastOpenFiles": [
+    "flutter的插件学习/permission_handler 管理设备权限.md",
+    "莫纳莫纳存放/首页的addDevice.md",
     "莫纳莫纳存放/图库/Pasted image 20240919130058.png",
     "莫纳莫纳存放/图库/Pasted image 20240919130046.png",
     "莫纳莫纳存放/图库",
     "案例合集/滑动互动广告/滑动互动广告.md",
-    "莫纳莫纳存放/首页的addDevice.md",
     "莫纳莫纳存放",
     "flutter的插件学习/provider 状态管理.md",
     "案例合集/滑动互动广告/图库/Pasted image 20240731004358.png",
@@ -167,7 +168,6 @@
     "UI/版型设计-文字.md",
     "案例合集/滑动互动广告",
     "UI/图库/Pasted image 20240726165053.png",
-    "UI/图库/Pasted image 20240726165045.png",
     "UI/色卡.md",
     "案例合集/未命名.md",
     "UI/图库",
@@ -176,7 +176,6 @@
     "flutter的插件学习/图库",
     "flutter的插件学习/audioplayers 音频播放.md",
     "flutter的插件学习/speech_to_text 语音转文字.md",
-    "flutter的插件学习/permission_handler 管理设备权限.md",
     "flutter的插件学习/path_provider 路径管理.md",
     "flutter的插件学习/flutter_sound 播放和录音.md",
     "path_provider.md",
