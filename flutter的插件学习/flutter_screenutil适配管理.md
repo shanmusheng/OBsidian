@@ -23,3 +23,52 @@ _注意_：此插件仍处于开发阶段，某些API可能尚不可用。
 | rebuildFactor   | Function          | _default_      | 返回屏幕指标更改时是否重建。                     |
 **初始化并设置配置尺寸及字体大小是否根据系统的字体大小辅助选项来进行缩放**
 在使用前请设置好设计稿的宽度和高度,传入设计稿的宽度和高度(单位随意,但在使用过程中必须保持一致)一定要进行初始化(只需设置一次),以保证在每次使用之前都配置好了适配尺寸
+## 初始化方法
+在最外层包裹上`ScreenUtilInit`
+```
+void main() {
+  runApp(
+    const MyApp(),
+  );
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return ScreenUtilInit(
+      designSize: Size(360, 690),//设计稿为360w690h
+      minTextAdapt: true,
+      splitScreenMode: true,
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+        ),
+        home: ScreenView(),
+        // home: RecordingScreenProvider(),
+      ),
+    );
+  }
+}
+```
+## 设置后的使用方法
+如果原本的宽度设置为100
+```
+            Container(
+              color: Colors.blue,
+              width: 100,
+              height: 100,
+              child: Text('100 100'),
+            ),
+```
+使用flutter_screenutil后
+```
+            Container(
+              color: Colors.blue,
+              width: 100.w,
+              height: 100.h,
+              child: Text('100w100h'),
+            ),
+```
