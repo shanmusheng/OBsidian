@@ -30,3 +30,9 @@ topRight: Radius.circular(size.width * 0.153)
 ![[Pasted image 20240920053223.png]]
 但是还可以利用插件来解决这个情况
 #flutter_screenutil 
+因为目前这个情境下的效果和用size是一样的,这里不再多做演示
+```
+topLeft: Radius.circular(60.w),  
+topRight: Radius.circular(60.w)),
+```
+所以所以,为什么要用这个插件呢,因为这个插件可以直接用设计稿的比例啊!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

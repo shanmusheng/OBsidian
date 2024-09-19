@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "莫纳莫纳存放/关于首页的底部border问题.md",
+                "file": "flutter的插件学习/flutter_screenutil适配管理.md",
                 "mode": "source",
                 "source": false
               }
@@ -60,7 +60,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#path_provider",
+                "query": "tag:#flutter_screenutil",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -97,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "莫纳莫纳存放/关于首页的底部border问题.md",
+                "file": "flutter的插件学习/flutter_screenutil适配管理.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "莫纳莫纳存放/关于首页的底部border问题.md",
+                "file": "flutter的插件学习/flutter_screenutil适配管理.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -137,7 +137,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "莫纳莫纳存放/关于首页的底部border问题.md"
+                "file": "flutter的插件学习/flutter_screenutil适配管理.md"
               }
             }
           }
@@ -158,8 +158,9 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "c5863fd0b9b96b46",
+  "active": "88dadf5cd257ef96",
   "lastOpenFiles": [
+    "莫纳莫纳存放/关于首页的底部border问题.md",
     "莫纳莫纳存放/图库/Pasted image 20240920053223.png",
     "莫纳莫纳存放/图库/Pasted image 20240920053139.png",
     "莫纳莫纳存放/图库/Pasted image 20240920053120.png",
@@ -167,7 +168,6 @@
     "莫纳莫纳存放/图库/Pasted image 20240920052424.png",
     "莫纳莫纳存放/图库/Pasted image 20240920052352.png",
     "flutter的插件学习/flutter_screenutil适配管理.md",
-    "莫纳莫纳存放/关于首页的底部border问题.md",
     "flutter的插件学习/audioplayers 音频播放.md",
     "flutter的插件学习/图库/PixPin_2024-09-19_21-26-09.gif",
     "flutter的插件学习/图库/Pasted image 20240919215226.png",
@@ -178,7 +178,6 @@
     "flutter的插件学习/path_provider 路径管理.md",
     "flutter的插件学习/permission_handler 管理设备权限.md",
     "莫纳莫纳存放/首页的addDevice.md",
-    "莫纳莫纳存放/图库/Pasted image 20240919130058.png",
     "莫纳莫纳存放/图库",
     "案例合集/滑动互动广告/滑动互动广告.md",
     "莫纳莫纳存放",
