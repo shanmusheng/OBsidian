@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "flutter的插件学习/path_provider 路径管理.md",
+                "file": "案例合集/录音播放.md",
                 "mode": "source",
                 "source": false
               }
@@ -48,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#provider",
+                "query": "tag:#path_provider",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -65,7 +65,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -85,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "flutter的插件学习/path_provider 路径管理.md",
+                "file": "案例合集/录音播放.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "flutter的插件学习/path_provider 路径管理.md",
+                "file": "案例合集/录音播放.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -125,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "flutter的插件学习/path_provider 路径管理.md"
+                "file": "案例合集/录音播放.md"
               }
             }
           }
@@ -148,6 +149,7 @@
   },
   "active": "c5863fd0b9b96b46",
   "lastOpenFiles": [
+    "flutter的插件学习/path_provider 路径管理.md",
     "flutter的插件学习/permission_handler 管理设备权限.md",
     "莫纳莫纳存放/首页的addDevice.md",
     "莫纳莫纳存放/图库/Pasted image 20240919130058.png",
@@ -176,7 +178,6 @@
     "flutter的插件学习/图库",
     "flutter的插件学习/audioplayers 音频播放.md",
     "flutter的插件学习/speech_to_text 语音转文字.md",
-    "flutter的插件学习/path_provider 路径管理.md",
     "flutter的插件学习/flutter_sound 播放和录音.md",
     "path_provider.md",
     "打.md",
