@@ -87,3 +87,24 @@ class _SplashHomePageState extends State<SplashHomePage> {
 }
 
 ```
+
+# wrap暂存
+```
+   Column(
+              children: [
+                Container(
+                  width: size.width * 0.44,
+                  height: size.height * 0.2,
+                  padding: EdgeInsets.all(25),
+                  decoration: BoxDecoration(
+                      color: Color(0xffF4F4FD),
+                      borderRadius: BorderRadius.circular(30)),
+                  child: Image.asset('assets/fitness_app/mural_detail1.png'),
+                ),
+                Text(
+                  '壁画',
+                  style: TextStyle(fontSize: 20),
+                )
+              ],
+            )
+```
