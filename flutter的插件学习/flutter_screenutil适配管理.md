@@ -86,4 +86,23 @@ class MyApp extends StatelessWidget {
    使用 `.w`、`.h`、`.sp` 等扩展方法，根据比例系数自动调整元素的尺寸.
 ## 具体实现步骤
 ### 初始化比例系数
-   当用`ScreenUtilInit` 初始化时,会指定一个设计稿的尺寸(通常是)
+   当用`ScreenUtilInit` 初始化时,会指定一个设计稿的尺寸(通常是 `designSize` 参数),`ScreenUtil` 会根据当前设备的实际宽度和高度计算出一个比例因子。
+```
+ScreenUtilInit(
+  designSize: const Size(375, 812), // 设计稿尺寸
+  builder: (context, child) {
+    return MyApp();
+  },
+);
+```
+在这里，`375` 和 `812` 是设计稿中的宽度和高度。而当前设备的实际宽度和高度可以通过 `MediaQuery` 获取：
+```
+double deviceWidth = MediaQuery.of(context).size.width;
+double deviceHeight = MediaQuery.of(context).size.height;
+```
+通过比较设计稿和设备的宽度、高度，`ScreenUtil` 计算出一个比例因子：
+```
+double scaleWidth = deviceWidth / 375; // 相对于设计稿宽度的缩放因子
+double scaleHeight = deviceHeight / 812; // 相对于设计稿高度的缩放因子
+```
+有了这个初始化比例系数就可以去
