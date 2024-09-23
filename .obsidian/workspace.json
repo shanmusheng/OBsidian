@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "flutter的插件学习/flutter_volume_controller音量控制.md",
+                "file": "案例合集/音量监听滑块.md",
                 "mode": "source",
                 "source": false
               }
@@ -97,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "flutter的插件学习/flutter_volume_controller音量控制.md",
+                "file": "案例合集/音量监听滑块.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "flutter的插件学习/flutter_volume_controller音量控制.md",
+                "file": "案例合集/音量监听滑块.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -137,7 +137,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "flutter的插件学习/flutter_volume_controller音量控制.md"
+                "file": "案例合集/音量监听滑块.md"
               }
             }
           }
@@ -160,8 +160,12 @@
   },
   "active": "c5863fd0b9b96b46",
   "lastOpenFiles": [
-    "flutter的插件学习/audioplayers 音频播放.md",
+    "案例合集/图库/recording.gif",
+    "案例合集/滑动互动广告/滑动互动广告.md",
+    "案例合集/音量监听滑块.md",
+    "案例合集/录音播放.md",
     "flutter的插件学习/flutter_volume_controller音量控制.md",
+    "flutter的插件学习/audioplayers 音频播放.md",
     "flutter的插件学习/permission_handler 管理设备权限.md",
     "flutter的插件学习/图库/Pasted image 20240923180239.png",
     "莫纳莫纳存放/Gallery画廊功能.md",
@@ -180,16 +184,13 @@
     "flutter的插件学习/图库/PixPin_2024-09-19_21-26-09.gif",
     "flutter的插件学习/图库/Pasted image 20240919215226.png",
     "flutter的插件学习/flutter_sound 播放和录音.md",
-    "案例合集/录音播放.md",
     "flutter的插件学习/path_provider 路径管理.md",
     "莫纳莫纳存放/图库",
-    "案例合集/滑动互动广告/滑动互动广告.md",
     "莫纳莫纳存放",
     "案例合集/滑动互动广告/图库",
     "UI/版型设计-文字.md",
     "案例合集/滑动互动广告",
     "UI/色卡.md",
-    "案例合集/未命名.md",
     "UI/图库",
     "案例合集/图库",
     "问题解决文件夹/图库",

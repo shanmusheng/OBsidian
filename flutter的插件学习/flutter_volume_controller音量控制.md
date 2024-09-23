@@ -17,3 +17,26 @@ A Flutter plugin to control system volume and listen for volume changes on diffe
 ```
 FlutterVolumeController.setVolume(volume);
 ```
+### 监听音量变化
+```
+//监听器
+  void _volumeListener(double volume) {
+    setState(() {
+      _currentVolume = volume;
+    });
+  }
+  //监听
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    FlutterVolumeController.addListener(_volumeListener);
+  }
+  //取消监听
+    @override
+  void dispose() {
+    // TODO: implement dispose
+    FlutterVolumeController.removeListener();
+    super.dispose();
+  }
+```
