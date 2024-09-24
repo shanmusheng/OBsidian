@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "案例合集/音量监听滑块.md",
+                "file": "问题解决文件夹/FLutter桌面端怎么不能触摸滑动.md",
                 "mode": "source",
                 "source": false
               }
@@ -97,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "案例合集/音量监听滑块.md",
+                "file": "问题解决文件夹/FLutter桌面端怎么不能触摸滑动.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "案例合集/音量监听滑块.md",
+                "file": "问题解决文件夹/FLutter桌面端怎么不能触摸滑动.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -137,7 +137,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "案例合集/音量监听滑块.md"
+                "file": "问题解决文件夹/FLutter桌面端怎么不能触摸滑动.md"
               }
             }
           }
@@ -160,9 +160,14 @@
   },
   "active": "c5863fd0b9b96b46",
   "lastOpenFiles": [
+    "如何使用GIt-OBsidian.md",
+    "问题解决文件夹/FLutter桌面端怎么不能触摸滑动.md",
+    "欢迎.md",
+    "创建链接.md",
+    "测试提交.md",
+    "案例合集/音量监听滑块.md",
     "案例合集/图库/recording.gif",
     "案例合集/滑动互动广告/滑动互动广告.md",
-    "案例合集/音量监听滑块.md",
     "案例合集/录音播放.md",
     "flutter的插件学习/flutter_volume_controller音量控制.md",
     "flutter的插件学习/audioplayers 音频播放.md",
@@ -182,7 +187,6 @@
     "莫纳莫纳存放/图库/Pasted image 20240920052424.png",
     "莫纳莫纳存放/图库/Pasted image 20240920052352.png",
     "flutter的插件学习/图库/PixPin_2024-09-19_21-26-09.gif",
-    "flutter的插件学习/图库/Pasted image 20240919215226.png",
     "flutter的插件学习/flutter_sound 播放和录音.md",
     "flutter的插件学习/path_provider 路径管理.md",
     "莫纳莫纳存放/图库",
@@ -200,10 +204,6 @@
     "案例合集",
     "问题解决文件夹/gradle下载失败的解决方法.md",
     "flutter的插件学习",
-    "如何使用GIt-OBsidian.md",
-    "欢迎.md",
-    "创建链接.md",
-    "测试提交.md",
     "问题解决文件夹/打包碰到的坑.md"
   ]
 }
