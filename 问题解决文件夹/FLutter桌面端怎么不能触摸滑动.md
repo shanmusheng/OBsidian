@@ -26,6 +26,11 @@ MaterialApp(
 ```
 这样就实现鼠标也可以触摸滑动了.
 到此还没有结束.同理还可以自定义滚动效果
+```
+PageView(
+        physics: CustomScrollPhysics(), // 自定义滑动
+        )
+```
 
 ```
   
