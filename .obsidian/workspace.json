@@ -4,28 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "1cc06bda278a71b8",
+        "id": "715b6866aefd4db5",
         "type": "tabs",
         "children": [
           {
-            "id": "c310a9a66bf705a8",
+            "id": "fdabccfcad1334fc",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "问题解决文件夹/怎么去解决Pageview嵌套导致的状态丢失问题.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "60d85a05374b31f3",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "flutter的插件学习/flutter_sound 播放和录音.md",
+                "file": "flutter的插件学习/image_picker图片选择.md",
                 "mode": "source",
                 "source": false
               }
@@ -97,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "问题解决文件夹/怎么去解决Pageview嵌套导致的状态丢失问题.md",
+                "file": "flutter的插件学习/image_picker图片选择.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "问题解决文件夹/怎么去解决Pageview嵌套导致的状态丢失问题.md",
+                "file": "flutter的插件学习/image_picker图片选择.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -137,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "问题解决文件夹/怎么去解决Pageview嵌套导致的状态丢失问题.md"
+                "file": "flutter的插件学习/image_picker图片选择.md"
               }
             }
           }
@@ -158,25 +146,33 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "c310a9a66bf705a8",
+  "active": "fdabccfcad1334fc",
   "lastOpenFiles": [
-    "莫纳莫纳存放/动态歌词尺寸.md",
+    "案例合集/画廊/画廊的实现.md",
+    "flutter的插件学习/image_picker图片选择.md",
+    "flutter的插件学习/shared_preferences本地化保存.md",
+    "案例合集/画廊/图库/Pasted image 20241001204816.png",
+    "案例合集/画廊/图库",
+    "案例合集/画廊",
+    "未命名",
+    "案例合集/音量监听滑块.md",
+    "案例合集/图库/recording.gif",
+    "案例合集/录音播放.md",
+    "图库/录音播放实现效果1.1.png",
+    "flutter的插件学习/flutter_sound 播放和录音.md",
     "问题解决文件夹/怎么去解决Pageview嵌套导致的状态丢失问题.md",
+    "莫纳莫纳存放/动态歌词尺寸.md",
     "莫纳莫纳存放/未命名.md",
     "莫纳莫纳存放/关于首页的底部border问题.md",
     "莫纳莫纳存放/首页的addDevice.md",
-    "案例合集/录音播放.md",
     "案例合集/滑动互动广告/滑动互动广告.md",
     "flutter的插件学习/screen_brightness亮度控制.md",
-    "flutter的插件学习/flutter_sound 播放和录音.md",
     "flutter的插件学习/audioplayers 音频播放.md",
     "问题解决文件夹/FLutter桌面端怎么不能触摸滑动.md",
     "如何使用GIt-OBsidian.md",
     "欢迎.md",
     "创建链接.md",
     "测试提交.md",
-    "案例合集/音量监听滑块.md",
-    "案例合集/图库/recording.gif",
     "flutter的插件学习/flutter_volume_controller音量控制.md",
     "flutter的插件学习/permission_handler 管理设备权限.md",
     "flutter的插件学习/图库/Pasted image 20240923180239.png",
@@ -190,21 +186,13 @@
     "莫纳莫纳存放/图库/Pasted image 20240920053120.png",
     "莫纳莫纳存放/图库/Pasted image 20240920052503.png",
     "莫纳莫纳存放/图库/Pasted image 20240920052424.png",
-    "莫纳莫纳存放/图库/Pasted image 20240920052352.png",
-    "flutter的插件学习/图库/PixPin_2024-09-19_21-26-09.gif",
     "flutter的插件学习/path_provider 路径管理.md",
     "莫纳莫纳存放/图库",
     "莫纳莫纳存放",
     "案例合集/滑动互动广告/图库",
-    "UI/版型设计-文字.md",
     "案例合集/滑动互动广告",
-    "UI/色卡.md",
     "UI/图库",
     "案例合集/图库",
-    "问题解决文件夹/图库",
-    "flutter的插件学习/图库",
-    "path_provider.md",
-    "案例合集",
-    "flutter的插件学习"
+    "问题解决文件夹/图库"
   ]
 }
