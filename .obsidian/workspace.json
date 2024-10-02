@@ -65,8 +65,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -147,7 +146,7 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "fdabccfcad1334fc",
+  "active": "88dadf5cd257ef96",
   "lastOpenFiles": [
     "案例合集/画廊/图库/recording.gif",
     "案例合集/画廊/图库/Pasted image 20241001222124.png",
