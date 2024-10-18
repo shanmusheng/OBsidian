@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "案例合集/画廊/画廊的设计-重生之我在xd当XD.md",
+                "file": "案例合集/画廊/画廊的实现-重生之我在xx当XX.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "画廊的设计-重生之我在xd当XD"
+              "title": "画廊的实现-重生之我在xx当XX"
             }
           }
         ]
@@ -93,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "案例合集/画廊/画廊的设计-重生之我在xd当XD.md",
+                "file": "案例合集/画廊/画廊的实现-重生之我在xx当XX.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "画廊的设计-重生之我在xd当XD 的反向链接列表"
+              "title": "画廊的实现-重生之我在xx当XX 的反向链接列表"
             }
           },
           {
@@ -112,12 +112,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "案例合集/画廊/画廊的设计-重生之我在xd当XD.md",
+                "file": "案例合集/画廊/画廊的实现-重生之我在xx当XX.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               },
               "icon": "links-going-out",
-              "title": "画廊的设计-重生之我在xd当XD 的出链列表"
+              "title": "画廊的实现-重生之我在xx当XX 的出链列表"
             }
           },
           {
@@ -139,10 +139,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "案例合集/画廊/画廊的设计-重生之我在xd当XD.md"
+                "file": "案例合集/画廊/画廊的实现-重生之我在xx当XX.md"
               },
               "icon": "lucide-list",
-              "title": "画廊的设计-重生之我在xd当XD 的大纲"
+              "title": "画廊的实现-重生之我在xx当XX 的大纲"
             }
           }
         ],
@@ -164,10 +164,11 @@
   },
   "active": "fdabccfcad1334fc",
   "lastOpenFiles": [
+    "案例合集/画廊/画廊的设计-重生之我在xd当XD.md",
+    "案例合集/画廊/画廊的实现-重生之我在xx当XX.md",
+    "案例合集/画廊/画廊的实现.md",
     "案例合集/画廊/图库/Pasted image 20241018135442.png",
     "案例合集/画廊/图库/Pasted image 20241018132010.png",
-    "案例合集/画廊/画廊的实现.md",
-    "案例合集/画廊/画廊的设计-重生之我在xd当XD.md",
     "案例合集/画廊/灵感.md",
     "案例合集/画廊/图库/Pasted image 20241017130339.png",
     "案例合集/画廊/图库/Pasted image 20241010170050.png",
@@ -177,7 +178,6 @@
     "案例合集/画廊/图库/Pasted image 20241001222124.png",
     "案例合集/画廊/图库/Pasted image 20241001221720.png",
     "案例合集/画廊/图库/Pasted image 20241001221605.png",
-    "案例合集/画廊/图库/Pasted image 20241001221225.png",
     "flutter的插件学习/permission_handler 管理设备权限.md",
     "flutter的插件学习/image_picker图片选择.md",
     "flutter的插件学习/shared_preferences本地化保存.md",
