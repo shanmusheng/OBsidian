@@ -81,3 +81,32 @@ class DesktopScrollBehavior extends MaterialScrollBehavior {
 ```
 ![[Pasted image 20241018143624.png]]
 这样就解决了
+利用`PageController`和`bottomNavigationBar`来给这个`PageView`加上切换页面功能
+```
+final PageController _pageController = PageController(initialPage: 2);  
+int pageIndex = 0;
+
+PageView(  
+  controller: _pageController,  
+  onPageChanged: (value) {  
+    pageIndex = value;  
+    setState(() {});  
+  },
+
+
+bottomNavigationBar: SizedBox(  
+  height: 80.h,  
+  child: BottomNavigationBar(  
+    items: const [  
+      BottomNavigationBarItem(icon: Icon(Icons.add), label: '1'),  
+      BottomNavigationBarItem(icon: Icon(Icons.add), label: '1'),  
+      BottomNavigationBarItem(icon: Icon(Icons.add), label: '1'),  
+    ],  
+    onTap: (index) {  
+      print(index);  
+      _pageController.jumpToPage(index);  
+    },  
+  ),  
+),
+```
+![[Pasted image 20241018150851.png]]
