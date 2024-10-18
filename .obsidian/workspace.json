@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "案例合集/画廊/画廊的实现.md",
+                "file": "案例合集/画廊/灵感.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "案例合集/画廊/画廊的实现.md",
+                "file": "案例合集/画廊/灵感.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "案例合集/画廊/画廊的实现.md",
+                "file": "案例合集/画廊/灵感.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "案例合集/画廊/画廊的实现.md"
+                "file": "案例合集/画廊/灵感.md"
               }
             }
           }
@@ -148,6 +148,9 @@
   },
   "active": "fdabccfcad1334fc",
   "lastOpenFiles": [
+    "案例合集/画廊/图库/Pasted image 20241017130339.png",
+    "案例合集/画廊/画廊的实现.md",
+    "案例合集/画廊/灵感.md",
     "案例合集/画廊/图库/Pasted image 20241010170050.png",
     "案例合集/画廊/图库/Pasted image 20241010165847.png",
     "案例合集/画廊/图库/Pasted image 20241010165815.png",
@@ -157,7 +160,6 @@
     "案例合集/画廊/图库/Pasted image 20241001221605.png",
     "案例合集/画廊/图库/Pasted image 20241001221225.png",
     "flutter的插件学习/permission_handler 管理设备权限.md",
-    "案例合集/画廊/画廊的实现.md",
     "flutter的插件学习/image_picker图片选择.md",
     "flutter的插件学习/shared_preferences本地化保存.md",
     "案例合集/画廊/图库/Pasted image 20241001204816.png",
@@ -167,7 +169,6 @@
     "案例合集/音量监听滑块.md",
     "案例合集/图库/recording.gif",
     "案例合集/录音播放.md",
-    "图库/录音播放实现效果1.1.png",
     "flutter的插件学习/flutter_sound 播放和录音.md",
     "问题解决文件夹/怎么去解决Pageview嵌套导致的状态丢失问题.md",
     "莫纳莫纳存放/动态歌词尺寸.md",
@@ -186,7 +187,6 @@
     "莫纳莫纳存放/Gallery画廊功能.md",
     "flutter的插件学习/provider 状态管理.md",
     "flutter的插件学习/speech_to_text 语音转文字.md",
-    "flutter的插件学习/flutter_screenutil适配管理.md",
     "莫纳莫纳存放/图库",
     "莫纳莫纳存放",
     "案例合集/滑动互动广告/图库",
