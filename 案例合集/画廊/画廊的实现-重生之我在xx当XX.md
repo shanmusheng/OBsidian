@@ -110,3 +110,5 @@ bottomNavigationBar: SizedBox(
 ),
 ```
 ![[Pasted image 20241018150851.png]]
+接下来是设计最主要的manager,去管理所有图片的信息和储存
+## manager
