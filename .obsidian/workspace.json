@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "案例合集/画廊/画廊的实现-重生之我在xx当XX.md",
+                "file": "案例合集/画廊/图片灵感.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "画廊的实现-重生之我在xx当XX"
+              "title": "图片灵感"
             }
           }
         ]
@@ -139,10 +139,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "案例合集/画廊/画廊的实现-重生之我在xx当XX.md"
+                "file": "案例合集/画廊/图片灵感.md"
               },
               "icon": "lucide-list",
-              "title": "画廊的实现-重生之我在xx当XX 的大纲"
+              "title": "图片灵感 的大纲"
             }
           }
         ],
@@ -164,21 +164,20 @@
   },
   "active": "fdabccfcad1334fc",
   "lastOpenFiles": [
+    "案例合集/画廊/画廊的实现-重生之我在xx当XX.md",
     "案例合集/画廊/图库/Pasted image 20241018150851.png",
     "案例合集/画廊/图库/Pasted image 20241018143624.png",
     "案例合集/画廊/图库/Pasted image 20241018142758.png",
     "案例合集/画廊/图库/Pasted image 20241018142138.png",
     "案例合集/画廊/图库/Pasted image 20241018141827.png",
     "案例合集/画廊/画廊的设计-重生之我在xd当XD.md",
-    "案例合集/画廊/画廊的实现-重生之我在xx当XX.md",
     "案例合集/画廊/画廊的实现.md",
     "案例合集/画廊/图库/Pasted image 20241018135442.png",
     "案例合集/画廊/图库/Pasted image 20241018132010.png",
-    "案例合集/画廊/灵感.md",
+    "案例合集/画廊/图片灵感.md",
     "案例合集/画廊/图库/Pasted image 20241017130339.png",
     "案例合集/画廊/图库/Pasted image 20241010170050.png",
     "案例合集/画廊/图库/Pasted image 20241010165847.png",
-    "案例合集/画廊/图库/Pasted image 20241010165815.png",
     "flutter的插件学习/permission_handler 管理设备权限.md",
     "flutter的插件学习/image_picker图片选择.md",
     "flutter的插件学习/shared_preferences本地化保存.md",
