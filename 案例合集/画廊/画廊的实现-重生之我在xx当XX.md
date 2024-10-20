@@ -370,3 +370,125 @@ class ImageManager extends ChangeNotifier {
 ```
 ## 页面搭建
 
+```
+import 'dart:io';
+
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gallery_sms/main.dart';
+import 'package:gallery_sms/manage/image_manager.dart';
+import 'package:provider/provider.dart';
+
+class GalleryHome extends StatefulWidget {
+  const GalleryHome({super.key});
+
+  @override
+  State<GalleryHome> createState() => _GalleryHomeState();
+}
+
+class _GalleryHomeState extends State<GalleryHome> {
+  late final ImageManager imageManagerInit; //在这里创建的状态管理器主要用来加载图片和添加
+  bool select = false;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    imageManagerInit = Provider.of<ImageManager>(context, listen: false);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final ImageManager imageManager =
+        Provider.of<ImageManager>(context, listen: true);
+    return Scaffold(
+      appBar: AppBar(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          print('触发添加方法');
+          imageManager.pickImageInfoFromGallery();
+        },
+        child: Icon(Icons.add),
+      ),
+      body: PageView.builder(
+          itemCount: imageManager.imageInfoList.length,
+          scrollDirection: Axis.vertical,
+          itemBuilder: (context, index) {
+            return Stack(
+              children: [
+                Container(
+                  width: 360.w,
+                  height: 500.h,
+                  decoration: BoxDecoration(color: Colors.cyan),
+                ),
+                Positioned(
+                  left: 200.w,
+                  top: 20.h,
+                  child: Text('图片名称'),
+                ),
+                Positioned(
+                  left: 200.w,
+                  top: 50.h,
+                  child: Text(imageManager.imageInfoList[index].name),
+                ),
+                Positioned(
+                  left: 200.w,
+                  top: 80.h,
+                  child: Text('添加时间'),
+                ),
+                Positioned(
+                  left: 200.w,
+                  top: 110.h,
+                  child: Text('添加时间'),
+                ),
+                Positioned(
+                  left: 200.w,
+                  top: 140.h,
+                  child: Text('简介'),
+                ),
+                Positioned(
+                  left: 200.w,
+                  top: 170.h,
+                  child: Text('简介'),
+                ),
+                Positioned(
+                  left: 20.w,
+                  top: 300.h,
+                  child: Text('图片tags'),
+                ),
+                Positioned(
+                  left: 20.w,
+                  top: 400.h,
+                  child: Text('图片tags'),
+                ),
+                AnimatedPositioned(
+                  duration: Duration(milliseconds: 400),
+                  top: select ? -125.h : 0,
+                  left: select ? -90.w : 0,
+                  child: AnimatedScale(
+                    duration: Duration(milliseconds: 400),
+                    scale: select ? 0.5 : 1,
+                    child: GestureDetector(
+                      onTap: () {
+                        select = !select;
+                        setState(() {});
+                      },
+                      child: SizedBox(
+                        width: 360.w,
+                        height: 500.h,
+                        child: Image.file(
+                          File(imageManager.imageInfoList[index].path),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            );
+          }),
+    );
+  }
+}
+
+```
+到这里先结束,然后是对xd的新修改
