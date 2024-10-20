@@ -493,3 +493,19 @@ class _GalleryHomeState extends State<GalleryHome> {
 ```
 到这里先结束,然后是对xd的新修改
 # 第三天
+### 对画廊主页进行了优化
+当处于点击状态时 ,添加按钮不显示,当非点击时,按钮显示
+![[recording 1.gif]]
+![[Pasted image 20241021011736.png]]
+![[Pasted image 20241021011739.png]]
+### 对画廊主页进行了优化
+当画廊没有图片时,默认显示添加图片按钮
+即
+```
+if (imageManager.imageInfoList.length == 0) {  
+  select = false;  
+}
+```
+![[recording 2.gif]]
+### 对画廊主页优化灵感
+发现在添加图片时,不能对图片进行一个细节的添加,比如提前确定好tag和name以及简介和收藏夹(后续更新)
