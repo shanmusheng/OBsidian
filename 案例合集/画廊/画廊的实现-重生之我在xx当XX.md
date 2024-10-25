@@ -513,3 +513,8 @@ if (imageManager.imageInfoList.length == 0) {
 ## 对画廊主页进行了优化
 加上了一些滚动效果,以免超出时太尴尬,也对tags和简介,名称进行了可编辑的处理,以及跑马灯的tag
 ![[Pasted image 20241024141641.png]]
+# 第五天
+对于画廊的搜索,可以用row和Visibility,Expanded来实现
+当Visibility的visible为false时,是不占位的,此时TextField因为Expanded就会填满消失的部分
+至于动画部分,这个暂时还是不清楚
+
