@@ -514,7 +514,9 @@ if (imageManager.imageInfoList.length == 0) {
 加上了一些滚动效果,以免超出时太尴尬,也对tags和简介,名称进行了可编辑的处理,以及跑马灯的tag
 ![[Pasted image 20241024141641.png]]
 # 第五天
-对于画廊的搜索,可以用row和Visibility,Expanded来实现
-当Visibility的visible为false时,是不占位的,此时TextField因为Expanded就会填满消失的部分
-至于动画部分,这个暂时还是不清楚
+对于画廊的搜索,可以用`Row`和`Visibility`,`Expanded`来实现
+当`Visibility`的`visible`为`false`时,是不占位的,此时`TextField`因为`Expanded`就会填满消失的部分
+至于动画部分,这个暂时还是不清楚,暂时用`AnimatedOpacity`来替代,将来换成其他的
 
+![[recording 3.gif]]
+现在接下来的问题是,搜索记录要不要和图片管理放在一起
