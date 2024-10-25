@@ -521,3 +521,4 @@ if (imageManager.imageInfoList.length == 0) {
 ![[recording 3.gif]]
 现在接下来的问题是,搜索记录要不要和图片管理放在一起
 问题来了,没有搜索键,怎么办,继续动态搜索吗
+发现很多会和appbar融合在一起,要不也仿照一下
