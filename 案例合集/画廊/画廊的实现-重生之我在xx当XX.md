@@ -523,3 +523,4 @@ if (imageManager.imageInfoList.length == 0) {
 问题来了,没有搜索键,怎么办,继续动态搜索吗
 发现很多会和appbar融合在一起,要不也仿照一下
 # 第六天
+对UI进行了重做,虽然有第一版,但还是太乱了
