@@ -20,21 +20,8 @@
               "icon": "lucide-file",
               "title": "画廊的设计-重生之我在xd当XD"
             }
-          },
-          {
-            "id": "35f99d55bc88cb0f",
-            "type": "leaf",
-            "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.7.5"
-              },
-              "icon": "lucide-file",
-              "title": "Release Notes 1.7.5"
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -151,9 +138,11 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {},
+              "state": {
+                "file": "案例合集/画廊/画廊的设计-重生之我在xd当XD.md"
+              },
               "icon": "lucide-list",
-              "title": "大纲"
+              "title": "画廊的设计-重生之我在xd当XD 的大纲"
             }
           }
         ],
@@ -173,7 +162,7 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "35f99d55bc88cb0f",
+  "active": "1c3330d4f3b73227",
   "lastOpenFiles": [
     "案例合集/画廊/画廊的设计-重生之我在xd当XD.md",
     "案例合集/画廊/画廊的实现-重生之我在xx当XX.md",
