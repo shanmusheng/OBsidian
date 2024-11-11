@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "案例合集/卡牌轮播/卡牌轮播.md",
+                "file": "案例合集/卡牌轮播/卡牌轮播3.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "卡牌轮播"
+              "title": "卡牌轮播3"
             }
           }
         ]
@@ -139,10 +139,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "案例合集/卡牌轮播/卡牌轮播.md"
+                "file": "案例合集/卡牌轮播/卡牌轮播3.md"
               },
               "icon": "lucide-list",
-              "title": "卡牌轮播 的大纲"
+              "title": "卡牌轮播3 的大纲"
             }
           }
         ],
@@ -164,11 +164,13 @@
   },
   "active": "1c3330d4f3b73227",
   "lastOpenFiles": [
+    "案例合集/卡牌轮播/卡牌轮播2.md",
+    "案例合集/卡牌轮播/卡牌轮播3.md",
+    "案例合集/卡牌轮播/卡牌轮播.md",
     "案例合集/卡牌轮播/图库/PixPin_2024-11-10_21-17-13.gif",
     "案例合集/卡牌轮播/图库/PixPin_2024-11-10_21-16-57.mp4",
     "案例合集/卡牌轮播/图库",
     "案例合集/灵感_抽卡包/感觉可以做成一个抽卡效果.md",
-    "案例合集/卡牌轮播/卡牌轮播.md",
     "案例合集/卡牌轮播",
     "案例合集/灵感_抽卡包/图库/recording.gif",
     "案例合集/灵感_抽卡包/图库",
@@ -198,7 +200,6 @@
     "案例合集/画廊/图片灵感.md",
     "案例合集/画廊/画廊的实现.md",
     "案例合集/画廊/图库/recording 2.gif",
-    "案例合集/画廊/图库/recording 1.gif",
     "flutter的插件学习/permission_handler 管理设备权限.md",
     "flutter的插件学习/image_picker图片选择.md",
     "flutter的插件学习/shared_preferences本地化保存.md",
@@ -208,7 +209,6 @@
     "问题解决文件夹/怎么去解决Pageview嵌套导致的状态丢失问题.md",
     "莫纳莫纳存放/动态歌词尺寸.md",
     "莫纳莫纳存放/未命名.md",
-    "莫纳莫纳存放/关于首页的底部border问题.md",
-    "莫纳莫纳存放/首页的addDevice.md"
+    "莫纳莫纳存放/关于首页的底部border问题.md"
   ]
 }
