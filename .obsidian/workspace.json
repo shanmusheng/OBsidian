@@ -20,8 +20,21 @@
               "icon": "lucide-file",
               "title": "毛玻璃实现"
             }
+          },
+          {
+            "id": "3cb759acb0ff4532",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.7.7"
+              },
+              "icon": "lucide-file",
+              "title": "Release Notes 1.7.7"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -138,11 +151,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "案例合集/毛玻璃/毛玻璃实现.md"
-              },
+              "state": {},
               "icon": "lucide-list",
-              "title": "毛玻璃实现 的大纲"
+              "title": "大纲"
             }
           }
         ],
@@ -162,7 +173,7 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "1c3330d4f3b73227",
+  "active": "3cb759acb0ff4532",
   "lastOpenFiles": [
     "案例合集/滑动抽屉/滑动抽屉.md",
     "案例合集/滑动抽屉/图库/PixPin_2024-11-17_12-21-09 1.mp4",
