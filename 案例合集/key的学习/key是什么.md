@@ -1,5 +1,5 @@
  相关链接 [Flutter 教程 Key-1 没有 Key 会发生什么奇怪现象_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1b54y1z7iD/?spm_id_from=333.999.0.0&vd_source=30c5e78b65f0821d46fd06f4e6c729a4)
- 在渲染树里,flutter并不能通过颜色或者其他数值来确定当前组件是什么,所以需要一个类似id的东西去来识别.
+ 在渲染树里,flutter并不能通过颜色或者其他数值来确定当前组件是什么,所以需要一个类似id的东西去来识别.(包括横屏竖屏之间的切换也会重新渲染)
  这个就是==key==
  
  ![[Pasted image 20241203144325.png]]
@@ -21,4 +21,4 @@
  
 key的类型
 分为局部和全局
- ![[Pasted image 20241203145139.png]]
+![[Pasted image 20241203151224.png]]
