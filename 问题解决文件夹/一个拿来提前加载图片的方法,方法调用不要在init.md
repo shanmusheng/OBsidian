@@ -43,3 +43,14 @@ Future<void> _preloadImagesAndNavigate(BuildContext context) async {
   }  
 }
 ```
+
+## 如果你有provider什么的
+这样去获取
+```
+_preloadImagesAndNavigate(  
+  context,  
+  preferencesProvider.imagePaths.map((e) => e.img).toList(),  
+  preferencesProvider.gifPaths.map((e) => e.img).toList(),  
+  preferencesProvider.songPaths.map((e) => e.img).toList(),  
+);
+```
