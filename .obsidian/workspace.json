@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "问题解决文件夹/一个拿来提前加载图片的方法,方法调用不要在init.md",
+                "file": "问题解决文件夹/设置appbar等一些组件的高度 PreferredSize.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "一个拿来提前加载图片的方法,方法调用不要在init"
+              "title": "设置appbar等一些组件的高度 PreferredSize"
             }
           }
         ]
@@ -139,10 +139,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "问题解决文件夹/一个拿来提前加载图片的方法,方法调用不要在init.md"
+                "file": "问题解决文件夹/设置appbar等一些组件的高度 PreferredSize.md"
               },
               "icon": "lucide-list",
-              "title": "一个拿来提前加载图片的方法,方法调用不要在init 的大纲"
+              "title": "设置appbar等一些组件的高度 PreferredSize 的大纲"
             }
           }
         ],
@@ -164,8 +164,9 @@
   },
   "active": "9d257eafddee2f1e",
   "lastOpenFiles": [
-    "问题解决文件夹/记录方法耗时.md",
     "问题解决文件夹/一个拿来提前加载图片的方法,方法调用不要在init.md",
+    "问题解决文件夹/设置appbar等一些组件的高度 PreferredSize.md",
+    "问题解决文件夹/记录方法耗时.md",
     "案例合集/毛玻璃/毛玻璃实现.md",
     "案例合集/灵感_抽卡包/感觉可以做成一个抽卡效果.md",
     "案例合集/卡牌轮播/卡牌录播4.md",
@@ -208,7 +209,6 @@
     "案例合集/卡牌轮播/卡牌轮播3.md",
     "oh_net的学习/图库",
     "案例合集/卡牌轮播/卡牌轮播.md",
-    "案例合集/卡牌轮播/卡牌轮播2.md",
-    "莫纳莫纳存放/问题列表.md"
+    "案例合集/卡牌轮播/卡牌轮播2.md"
   ]
 }
