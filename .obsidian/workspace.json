@@ -39,12 +39,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "未命名.md",
+                "file": "案例合集/水波纹/水波纹2_chatgpt.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "未命名"
+              "title": "水波纹2_chatgpt"
             }
           }
         ],
@@ -167,13 +167,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "未命名.md",
+                "file": "案例合集/水波纹/水波纹2_chatgpt.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "未命名 的大纲"
+              "title": "水波纹2_chatgpt 的大纲"
             }
           }
         ],
@@ -195,6 +195,8 @@
   },
   "active": "a4e08cc6c00c0e1a",
   "lastOpenFiles": [
+    "案例合集/水波纹/水波纹.md",
+    "案例合集/水波纹/水波纹2_chatgpt.md",
     "未命名.md",
     "案例合集/旋转布局/图库/Pasted image 20250207141641.png",
     "案例合集/旋转布局/图库",
@@ -235,8 +237,6 @@
     "问题解决文件夹/记录方法耗时.md",
     "案例合集/灵感_抽卡包/感觉可以做成一个抽卡效果.md",
     "案例合集/卡牌轮播/卡牌录播4.md",
-    "案例合集/滑动互动广告/滑动互动广告.md",
-    "案例合集/画廊/画廊的实现-重生之我在xx当XX.md",
     "案例合集/从服务器加载图片逻辑",
     "未命名",
     "案例合集/列表只取前几项",
