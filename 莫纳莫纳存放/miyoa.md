@@ -17,3 +17,4 @@ PS G:\monar_app> keytool -list -v -keystore my-release-key.jks -alias key0
 ]
 
 PS G:\monar_app>
+![[my-release-key.cer]]
