@@ -2269,3 +2269,1173 @@ class LightMode {
 //   );  
 // }
 ```
+
+
+///设备详情页uI
+```
+import 'dart:async';  
+import 'dart:ffi';  
+import 'dart:math';  
+  
+import 'package:flutter/cupertino.dart';  
+import 'package:flutter/material.dart';  
+import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';  
+import 'package:flutter_screenutil/flutter_screenutil.dart';  
+import 'package:flutter_volume_controller/flutter_volume_controller.dart';  
+import 'package:provider/provider.dart';  
+  
+import '../../app_theme.dart';  
+import '../../generated/l10n.dart';  
+import '../../models/public/wifi_model.dart';  
+import '../../utils/blue_classic_provider.dart';  
+import '../../utils/overlay_manage.dart';  
+import '../../utils/wifi_blue_combined.dart';  
+import '../../widgets/image_animation.dart';  
+  
+class V6ProductsDetailsView extends StatefulWidget {  
+  final String address;  
+  const V6ProductsDetailsView({super.key, required this.address});  
+  
+  @override  
+  State<V6ProductsDetailsView> createState() => _V6ProductsDetailsViewState();  
+}  
+  
+class _V6ProductsDetailsViewState extends State<V6ProductsDetailsView>  
+    with SingleTickerProviderStateMixin {  
+  ScrollController _scrollController = ScrollController(); //监听展开的值  
+  double _expandedHeight = 540.h; // 设置初始展开高度  
+  double currentExtent = 0.h;  
+  late CombinedProvider combinedProvider;  
+  late BlueClassicProvider blueClassicProvider;  
+  late BlueInformation blueInfo;  
+  late BluetoothConnection? blueInfoConnect;  
+  late PageController controller;  
+  late AnimationController _controller; //动画旋转  
+  int currentPage = 0;  
+  double currentLight = 100.0;  
+  double currentVolume = 0.2;  
+  Timer? _timer; // 定时器  
+  bool isAuto = false; // 自动亮度  
+  bool isLoading = false; // 标志wifi是否在加载中  
+  bool setWifi = false; // 标志wifi正在输入密码  
+  bool _isRotating = false; //刷新wifi  
+  bool _isDebounced = false; // 刷新wifi防抖状态  
+  ///亮度模式  
+  int lightMode = 0;  
+  List<LightMode> lightModes = [  
+    LightMode(  
+      mode: 0,  
+      img: 'assets/icons/png/pngX4/正面_2.png',  
+      str: 'splash_home_device_details_Speaker_brightness_display_daytime',  
+      light: 255,  
+    ),  
+    LightMode(  
+      mode: 1,  
+      img: 'assets/icons/png/pngX4/Group_1921 (1).png',  
+      str: 'splash_home_device_details_Speaker_brightness_display_cloudy',  
+      light: 128,  
+    ),  
+    LightMode(  
+      mode: 2,  
+      img: 'assets/icons/png/pngX4/Group_1921.png',  
+      str: 'splash_home_device_details_Speaker_brightness_display_At_night',  
+      light: 32,  
+    ),  
+    LightMode(  
+      mode: 3,  
+      img: 'assets/icons/png/pngX4/Group_1921 (2).png',  
+      str:  
+          'splash_home_device_details_Speaker_brightness_display_Turn_off_the_screen',  
+      light: 0,  
+    ),  
+  ];  
+  @override  
+  void initState() {  
+    super.initState();  
+    _initVolume();  
+    _controller = AnimationController(  
+      vsync: this,  
+      duration: const Duration(milliseconds: 500), // 动画持续时间  
+    );  
+    // 监听滚动变化  
+    _scrollController.addListener(_scrollListener);  
+    controller = PageController();  
+    // 获取蓝牙状态管理  
+    blueClassicProvider =  
+        Provider.of<BlueClassicProvider>(context, listen: false);  
+    combinedProvider = Provider.of<CombinedProvider>(context, listen: false);  
+    // 获取蓝牙信息  
+    blueInfo = blueClassicProvider.blueInfoList.firstWhere(  
+      (blueInfo) => blueInfo.address == widget.address,  
+      orElse: () => BlueInformation(),  
+    );  
+  
+    print(blueInfo.name);  
+    print(blueInfo.address);  
+  
+    // 获取蓝牙连接  
+    blueInfoConnect = blueClassicProvider.v6GetConnection(widget.address);  
+  
+    // 检查是否有现有连接  
+    if (blueInfoConnect != null) {  
+      blueClassicProvider.connection = blueInfoConnect;  
+    }  
+  
+    // 检查连接状态并获取Wi-Fi信息  
+    if (blueInfoConnect?.isConnected ?? false) {  
+      WidgetsBinding.instance.addPostFrameCallback((_) {  
+        blueClassicProvider.getWifiNetworksAndSetIP(widget.address);  
+      });  
+    }  
+    startListening();  
+  }  
+  
+  @override  
+  void dispose() {  
+    _scrollController.removeListener(_scrollListener);  
+    _scrollController.dispose();  
+    _controller.dispose();  
+    controller.dispose();  
+    stopListening();  
+    super.dispose();  
+  }  
+  
+// 滚动监听器  
+  void _scrollListener() {  
+    currentExtent = _scrollController.position.extentBefore;  
+    print(currentExtent);  
+    setState(() {  
+      _expandedHeight = 540.h - (currentExtent.h / 1.4); // 计算当前展开高度  
+    });  
+  }  
+  
+  // 初始化音量  
+  Future<void> _initVolume() async {  
+    currentVolume = await FlutterVolumeController.getVolume() ??  
+        0.1; // _currentVolume = (await FlutterVolumeController.getVolume())!;  
+  }  
+  
+  /// 停止监听  
+  void stopListening() {  
+    _timer?.cancel();  
+    _timer = null;  
+  }  
+  
+  /// 调用 sendControlMusicInfo 方法并更新状态  
+  Future<void> _fetchMusicInfo() async {  
+    try {  
+      await combinedProvider.sendControlMusicInfo();  
+    } catch (e) {  
+      print('获取音乐信息失败: $e');  
+    }  
+  }  
+  
+  /// 启动定时器，每 2 秒调用一次 sendControlMusicInfo  void startListening() {  
+    _timer?.cancel(); // 确保没有重复的 Timer 实例  
+    _timer = Timer.periodic(const Duration(seconds: 15), (timer) async {  
+      await _fetchMusicInfo();  
+    });  
+  }  
+  
+  @override  
+  Widget build(BuildContext context) {  
+    final blueClassicProvider = Provider.of<BlueClassicProvider>(context);  
+    final combinedProvider = Provider.of<CombinedProvider>(context);  
+// 处理返回按钮  
+    Future<bool> onWillPop() async {  
+      if (blueClassicProvider.blueOverlayVisible) {  
+        return false; // 阻止默认的返回操作  
+      }  
+      if (OverlayManager.loadOverlayVisible) {  
+        return false; // 阻止默认的返回操作  
+      }  
+      if (OverlayManager.isOverlayVisible) {  
+        OverlayManager.removeOverlay();  
+        return false; // 阻止默认的返回操作  
+      }  
+      return true; // 允许默认的返回操作  
+    }  
+  
+    return WillPopScope(  
+      onWillPop: onWillPop, // 捕捉返回按钮事件  
+      child: Scaffold(  
+        backgroundColor: AppTheme.v6ThemeBlank,  
+        body: CustomScrollView(  
+          controller: _scrollController,  
+          slivers: [  
+            SliverAppBar(  
+              floating: true,  
+              pinned: false, // 固定住标题，避免滚动时被遮住  
+              expandedHeight: 600.h,  
+              backgroundColor: AppTheme.v6ThemeBlank,  
+              centerTitle: true, stretch: true, // 启用拉伸效果  
+              toolbarHeight: 100,  
+              title: Text('1222'),  
+              flexibleSpace: FlexibleSpaceBar(  
+                // expandedTitleScale: 2,  
+                titlePadding: EdgeInsets.only(),  
+                background: Stack(  
+                  fit: StackFit.expand,  
+                  children: [  
+                    Image.asset(  
+                      'assets/design/splash/image_297.png',  
+                      scale: 1,  
+                      fit: BoxFit.fill,  
+                    ),  
+                    Positioned(  
+                      top: _expandedHeight,  
+                      child: SizedBox(width: 390.w, child: builditemMode()),  
+                    ),  
+                  ],  
+                ),  
+                // centerTitle: true,  
+                title: Container(  
+                  margin: EdgeInsets.only(  
+                    top: 260.h - (currentExtent * 200 / 248), //这里是60-260  
+                    bottom: 0.h,  
+                  ),  
+                  child: Align(  
+                    alignment: Alignment.topCenter,  
+                    child: AnimatedBuilder(  
+                      animation: _scrollController,  
+                      builder: (context, child) {  
+                        double scale = 1.0; // 默认的缩放倍数  
+                        scale =  
+                            1.0 - (currentExtent / 248) * 0.5; // 假设最小缩放倍数为 0.5                        return Transform.scale(  
+                          scale: scale, // 设置缩放倍数  
+                          child: Image.asset(  
+                            'assets/design/splash/珍珠耳环_20.png',  
+                            scale: 4,  
+                          ), // 你的标题内容  
+                        );  
+                      },  
+                    ),  
+                  ),  
+                ),  
+                stretchModes: [StretchMode.zoomBackground], // 拉伸背景并放大  
+              ),  
+            ),  
+            SliverToBoxAdapter(  
+              child: ClipRRect(  
+                borderRadius: BorderRadius.only(  
+                  topLeft: Radius.circular(30.0.r),  
+                  topRight: Radius.circular(30.0.r),  
+                ),  
+                child: Container(  
+                  width: 360.w,  
+                  height: 417.h,  
+                  color: Colors.transparent,  
+                  child: PageView(  
+                    physics: NeverScrollableScrollPhysics(),  
+                    controller: controller,  
+                    children: [  
+                      wifiCard(context, blueClassicProvider),  
+                      // Container(  
+                      //   child: Center(                      //     child: Text(                      //       S                      //           .of(context)                      //           .splash_home_device_details_modes_no_create,                      //       style:                      //           TextStyle(color: Colors.black, fontSize: 32.sp),                      //     ),                      //   ),                      // ),                      LightContainer(context),  
+                      musicCard(context, combinedProvider),  
+                      ShutdownCard(blueClassicProvider: blueClassicProvider),  
+                    ],  
+                  ),  
+                ),  
+              ),  
+            ),  
+          ],  
+        ),  
+      ),  
+    );  
+  }  
+  
+  Container musicCard(BuildContext context, CombinedProvider combinedProvider) {  
+    return Container(  
+      height: 360.h,  
+      width: 360.w,  
+      padding: EdgeInsets.symmetric(vertical: 15.h, horizontal: 15.w),  
+      decoration: BoxDecoration(  
+        color: AppTheme.v6ThemeColors,  
+        borderRadius: BorderRadius.circular(15.r),  
+      ),  
+      child: Column(  
+        crossAxisAlignment: CrossAxisAlignment.start,  
+        children: [  
+          Text(  
+            S.of(context).splash_home_device_details_enjoy_the_music,  
+            style: AppTheme.v6blank16bold,  
+          ),  
+          Container(  
+            margin: EdgeInsets.only(top: 10.h, bottom: 10.h),  
+            height: 163.h,  
+            padding: EdgeInsets.symmetric(vertical: 10.w, horizontal: 18.h),  
+            decoration: BoxDecoration(  
+                color: AppTheme.white,  
+                borderRadius: BorderRadius.circular(12.r)),  
+            child: Column(  
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,  
+              children: [  
+                Row(  
+                  children: [  
+                    ClipRRect(  
+                      child: Image.asset(  
+                        'assets/design/dynamic/album.png',  
+                        width: 55.w,  
+                        height: 55.w,  
+                      ),  
+                      borderRadius: BorderRadius.circular(8.r),  
+                    ),  
+                    SizedBox(  
+                      width: 15.w,  
+                    ),  
+                    Column(  
+                      crossAxisAlignment: CrossAxisAlignment.start,  
+                      mainAxisAlignment: MainAxisAlignment.start,  
+                      children: [  
+                        SizedBox(  
+                          width: 220.w,  
+                          child: Text(  
+                            combinedProvider.infoResult.title == ''  
+                                ? "Die with a smile"  
+                                : combinedProvider.infoResult.title ??  
+                                    "Die with a smile",  
+                            style: TextStyle(  
+                                fontSize: 20.sp,  
+                                overflow: TextOverflow.ellipsis,  
+                                fontWeight: FontWeight.bold,  
+                                color: Colors.black),  
+                          ),  
+                        ),  
+                        SizedBox(  
+                          width: 220.w,  
+                          child: Text(  
+                            combinedProvider.infoResult.artist == ''  
+                                ? "Lady gaga & Bruno Mars"  
+                                : combinedProvider.infoResult.artist ??  
+                                    "Lady gaga & Bruno Mars",  
+                            overflow: TextOverflow.ellipsis,  
+                            style: TextStyle(  
+                              fontSize: 13.sp,  
+                              color: AppTheme.v6AF,  
+                            ),  
+                          ),  
+                        ),  
+                      ],  
+                    ),  
+                  ],  
+                ),  
+                Row(  
+                  mainAxisAlignment: MainAxisAlignment.center,  
+                  children: [  
+                    InkWell(  
+                      child: Container(  
+                          width: 30.w,  
+                          height: 30.h,  
+                          margin: EdgeInsets.symmetric(horizontal: 10.w),  
+                          child: Image.asset(  
+                            'assets/icons/png/pngX4/上一首_1.png',  
+                            fit: BoxFit.contain,  
+                          )),  
+                      onTap: () async {  
+                        setState(() {});  
+                        // await skipPrevious();  
+                        await combinedProvider.sendControlMusic(3);  
+                      },  
+                    ),  
+                    // combinedProvider.infoResult.status == "playing"  
+                    combinedProvider.play  
+                        ? InkWell(  
+                            onTap: () async {  
+                              await combinedProvider.sendControlMusic(1);  
+                              // await pause();  
+                              // isplay = false;                              combinedProvider.play = false;  
+  
+                              setState(() {});  
+                            },  
+                            child: Container(  
+                              width: 30.w,  
+                              height: 30.h,  
+                              margin: EdgeInsets.symmetric(horizontal: 10.w),  
+                              child: Image.asset(  
+                                  'assets/icons/png/播放器-暂停_44_1.png'),  
+                            ))  
+                        : InkWell(  
+                            onTap: () async {  
+                              await combinedProvider.sendControlMusic(0);  
+                              // await resume();  
+                              // isplay = true;                              combinedProvider.play = true;  
+                              setState(() {});  
+                            },  
+                            child: Container(  
+                              width: 30.w,  
+                              height: 30.h,  
+                              margin: EdgeInsets.symmetric(horizontal: 10.w),  
+                              child: Image.asset(  
+                                'assets/icons/png/播放_(6)_1.png',  
+                                fit: BoxFit.contain,  
+                              ),  
+                            )),  
+                    InkWell(  
+                        onTap: () async {  
+                          setState(() {});  
+                          // await skipNext();  
+                          await combinedProvider.sendControlMusic(2);  
+                        },  
+                        child: Container(  
+                            width: 30.w,  
+                            height: 30.h,  
+                            margin: EdgeInsets.symmetric(horizontal: 10.w),  
+                            child: Image.asset(  
+                              'assets/icons/png/pngX4/上一首_2.png',  
+                              fit: BoxFit.contain,  
+                            ))),  
+                  ],  
+                ),  
+                Row(  
+                  children: [  
+                    Image.asset(  
+                      'assets/icons/png/pngX4/volume_select.png',  
+                      scale: 4,  
+                    ),  
+                    Expanded(  
+                      child: Slider(  
+                        min: 0,  
+                        max: 1,  
+                        value: currentVolume,  
+                        activeColor: AppTheme.v6Blank,  
+                        onChanged: (value) {  
+                          setState(() {});  
+                          currentVolume = value;  
+                          print(currentVolume);  
+                          FlutterVolumeController.setVolume(currentVolume);  
+                        },  
+                        onChangeEnd: (value) {  
+                          setState(() {});  
+                          print(currentVolume);  
+                          // FlutterVolumeController.setVolume(  
+                          //     currentVolume);                          // combinedProvider.sendLuminosity(                          //     currentLight.toInt());                          // sendLuminosity                        },  
+                      ),  
+                    ),  
+                  ],  
+                ),  
+              ],  
+            ),  
+          ),  
+          Container(  
+            margin: EdgeInsets.only(top: 10.h, bottom: 10.h),  
+            height: 90.h,  
+            padding: EdgeInsets.symmetric(vertical: 12.w, horizontal: 18.h),  
+            decoration: BoxDecoration(  
+                color: AppTheme.white,  
+                borderRadius: BorderRadius.circular(12.r)),  
+            child: Column(  
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,  
+              children: [  
+                Row(  
+                  children: [  
+                    Text(  
+                      S.of(context).splash_home_device_details_sound_mode,  
+                      style: AppTheme.v6blank16bold,  
+                    ),  
+                    Image.asset(  
+                      'assets/icons/png/pngX4/均衡器_(1)_9.png',  
+                      scale: 4,  
+                    ),  
+                  ],  
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,  
+                ),  
+                SingleChildScrollView(  
+                  scrollDirection: Axis.horizontal,  
+                  child: Row(  
+                    mainAxisAlignment: MainAxisAlignment.start,  
+                    children: [  
+                      Container(  
+                        height: 33.h,  
+                        margin: EdgeInsets.only(right: 10.w),  
+                        padding: EdgeInsets.symmetric(horizontal: 10.w),  
+                        decoration: BoxDecoration(  
+                            color: AppTheme.v6ED,  
+                            borderRadius: BorderRadius.circular(16.r)),  
+                        child: Row(  
+                          children: [  
+                            Image.asset(  
+                              'assets/icons/png/pngX4/音乐_10.png',  
+                              scale: 4,  
+                            ),  
+                            Text(  
+                              S  
+                                  .of(context)  
+                                  .splash_home_device_details_sound_mode_STANDARD,  
+                              style: AppTheme.v6blank16bold,  
+                            ),  
+                          ],  
+                        ),  
+                      ),  
+  
+                      ///  
+                      Container(  
+                        height: 33.h,  
+                        margin: EdgeInsets.only(right: 10.w),  
+                        padding: EdgeInsets.symmetric(horizontal: 10.w),  
+                        decoration: BoxDecoration(  
+                            color: AppTheme.v6ED,  
+                            borderRadius: BorderRadius.circular(16.r)),  
+                        child: Row(  
+                          children: [  
+                            Image.asset(  
+                              'assets/icons/png/pngX4/语音_9 (1).png',  
+                              scale: 4,  
+                            ),  
+                            Text(  
+                              S  
+                                  .of(context)  
+                                  .splash_home_device_details_sound_mode_VOCAL,  
+                              style: AppTheme.v6blank16bold,  
+                            ),  
+                          ],  
+                        ),  
+                      ),  
+                      Container(  
+                        height: 33.h,  
+                        margin: EdgeInsets.only(right: 10.w),  
+                        padding: EdgeInsets.symmetric(horizontal: 10.w),  
+                        decoration: BoxDecoration(  
+                            color: AppTheme.v6ED,  
+                            borderRadius: BorderRadius.circular(16.r)),  
+                        child: Row(  
+                          children: [  
+                            Image.asset(  
+                              'assets/icons/png/pngX4/跳舞_10.png',  
+                              scale: 4,  
+                            ),  
+                            Text(  
+                              S  
+                                  .of(context)  
+                                  .splash_home_device_details_sound_mode_PARTY,  
+                              style: AppTheme.v6blank16bold,  
+                            ),  
+                          ],  
+                        ),  
+                      ),  
+                    ],  
+                  ),  
+                ),  
+              ],  
+            ),  
+          ),  
+        ],  
+      ),  
+    );  
+  }  
+  
+  Row builditemMode() {  
+    return Row(  
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,  
+      children: [  
+        deviceStatusIcon(  
+          isConnected: false,  
+          page: 0,  
+          connectedImage: 'assets/icons/png/pngX4/wifi.png',  
+          disconnectedImage: 'assets/icons/png/pngX4/wifi_select.png',  
+        ),  
+        deviceStatusIcon(  
+          isConnected: false,  
+          page: 1,  
+          connectedImage: 'assets/icons/png/pngX4/light.png',  
+          disconnectedImage: 'assets/icons/png/pngX4/light_select.png',  
+        ),  
+        deviceStatusIcon(  
+          isConnected: false,  
+          page: 2,  
+          connectedImage: 'assets/icons/png/pngX4/volume.png',  
+          disconnectedImage: 'assets/icons/png/pngX4/volume_select.png',  
+        ),  
+        deviceStatusIcon(  
+          isConnected: false,  
+          page: 3,  
+          connectedImage: 'assets/icons/png/pngX4/power.png',  
+          disconnectedImage: 'assets/icons/png/pngX4/power_select.png',  
+        ),  
+      ],  
+    );  
+  }  
+  
+  ///Wifi模块  
+  Widget wifiCard(  
+      BuildContext context, BlueClassicProvider blueClassicProvider) {  
+    return Container(  
+      width: 360.w,  
+      height: 360.h,  
+      padding: EdgeInsets.symmetric(vertical: 15.w, horizontal: 15.w),  
+      decoration: BoxDecoration(  
+          borderRadius: BorderRadius.circular(15.r),  
+          color: AppTheme.v6ThemeColors),  
+      margin: EdgeInsets.only(bottom: 10.h),  
+      child: Column(  
+        crossAxisAlignment: CrossAxisAlignment.start,  
+        mainAxisAlignment: MainAxisAlignment.start,  
+        children: [  
+          SizedBox(  
+            height: 10.h,  
+          ),  
+  
+          Text(  
+            S.of(context).splash_home_device_details_net_connect_current,  
+            style: TextStyle(  
+                fontSize: 20.sp,  
+                color: AppTheme.v6Blank,  
+                fontWeight: FontWeight.bold),  
+          ),  
+          Container(  
+            alignment: Alignment.centerLeft,  
+            padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 1.h),  
+            margin: EdgeInsets.symmetric(vertical: 15.h),  
+            height: 50.h,  
+            decoration: BoxDecoration(  
+              color: AppTheme.v6White,  
+              borderRadius: BorderRadius.circular(8.r),  
+            ),  
+            child: Row(  
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,  
+              children: [  
+                Text(  
+                  'Wi-Fi',  
+                  style: TextStyle(  
+                      color: AppTheme.v6Blank,  
+                      fontSize: 16.sp,  
+                      fontWeight: FontWeight.bold),  
+                ),  
+                SizedBox(  
+                  width: 200.w,  
+                  child: Text(  
+                    blueClassicProvider.wifiName,  
+                    softWrap: false,  
+                    overflow: TextOverflow.ellipsis,  
+                    textAlign: TextAlign.end,  
+                    style: TextStyle(  
+                        color: AppTheme.v6Blank,  
+                        fontSize: 16.sp,  
+                        fontWeight: FontWeight.bold),  
+                  ),  
+                ),  
+              ],  
+            ),  
+          ),  
+          Row(  
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,  
+            children: [  
+              Text(  
+                S.of(context).splash_home_device_details_other_net,  
+                style: TextStyle(  
+                    fontSize: 20.sp,  
+                    color: AppTheme.v6Blank,  
+                    fontWeight: FontWeight.bold),  
+              ),  
+              GestureDetector(  
+                onTap: () async {  
+                  if (_isDebounced) return; // 如果已经在处理，直接返回  
+                  print('111');  
+                  _isDebounced = true;  
+                  blueClassicProvider.networksData?.clear();  
+                  _controller.repeat();  
+                  await blueClassicProvider  
+                      .getWifiNetworksAndSetIP(widget.address); // 停止旋转动画  
+                  _controller.stop();  
+                  _controller.reset();  
+                  _isDebounced = false;  
+                },  
+                child: AnimatedBuilder(  
+                  animation: _controller,  
+                  builder: (BuildContext context, Widget? child) {  
+                    return Transform.rotate(  
+                      angle: _controller.value * 2 * pi, // 旋转角度  
+                      child: child,  
+                    );  
+                  },  
+                  child: Image.asset(  
+                    width: 30.w,  
+                    height: 30.h,  
+                    'assets/icons/png/pngX4/刷新_(1)_4.png',  
+                    fit: BoxFit.contain,  
+                  ),  
+                ),  
+              )  
+            ],  
+          ),  
+  
+          /// wifi列表  
+          Container(  
+            width: 360.w,  
+            height: (blueClassicProvider.networksData?.length ?? 0) * 50.h,  
+            constraints: BoxConstraints(maxHeight: 250.h),  
+            padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 1.h),  
+            margin: EdgeInsets.symmetric(vertical: 15.h),  
+            decoration: BoxDecoration(  
+              color: AppTheme.v6White,  
+              borderRadius: BorderRadius.circular(8.r),  
+            ),  
+            child: ListView.separated(  
+              padding: EdgeInsets.zero, // 去掉默认的 padding              itemCount: blueClassicProvider.networksData?.length ?? 0,  
+              separatorBuilder: (BuildContext context, int index) {  
+                return Divider(  
+                  height: 0,  
+                );  
+              },  
+              itemBuilder: (context, index) {  
+                String? network = blueClassicProvider.networksData?[index];  
+                return GestureDetector(  
+                  onTap: () {  
+                    blueClassicProvider.ssidController.text = network!;  
+                    final WifiModel info =  
+                        blueClassicProvider.wifiModelData.firstWhere(  
+                      (wifiModel) => wifiModel.wifiName == network,  
+                      orElse: () => WifiModel(wifiName: ''),  
+                    );  
+                    blueClassicProvider.passwordController.text =  
+                        info.wifiPassword ?? '';  
+                    OverlayManager.showWifiOverlay(  
+                        blueProvider: blueClassicProvider);  
+                  },  
+                  child: Container(  
+                    alignment: Alignment.centerLeft,  
+                    height: 50.h,  
+                    decoration: BoxDecoration(  
+                      color: AppTheme.v6White,  
+                      borderRadius: BorderRadius.circular(8.r),  
+                    ),  
+                    child: Row(  
+                      // mainAxisAlignment:  
+                      //     MainAxisAlignment.spaceBetween,                      children: [  
+                        SizedBox(  
+                          width: 200.w,  
+                          child: Text(  
+                            network ?? S.of(context).wifi_Unknown_network,  
+                            softWrap: false,  
+                            overflow: TextOverflow.ellipsis,  
+                            style: TextStyle(  
+                                color: AppTheme.v6Blank, fontSize: 16.sp),  
+                          ),  
+                        ),  
+                        Expanded(child: SizedBox()),  
+                        Image.asset('assets/icons/png/锁_1.png'),  
+                        SizedBox(  
+                          width: 15.w,  
+                        ),  
+                        Image.asset('assets/icons/png/Frame_39.png'),  
+                      ],  
+                    ),  
+                  ),  
+                );  
+              },  
+            ),  
+          ),  
+        ],  
+      ),  
+    );  
+  }  
+  
+  // Container SetWifi() {  
+  //   return Container(  //     width: 390.w,  //     height: 191.h,  //     decoration: BoxDecoration(  //         color: AppTheme.v6ThemeColors,  //         borderRadius: BorderRadius.circular(16.r)),  //     padding: EdgeInsets.all(5.w),  //     child: Column(  //       children: [  //         Row(  //           mainAxisAlignment: MainAxisAlignment.center,  //           children: [  //             Text(  //               'cannel',  //               style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w600),  //             ),  //             Text(  //               S.of(context).splash_home_device_details_enter_net,  //               style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w600),  //             ),  //             Text(  //               'Join',  //               style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w600),  //             ),  //           ],  //         ),  //         TextField(),  //       ],  //     ),  //   );  // }  
+  ///亮度模块  
+  Widget LightContainer(BuildContext context) {  
+    return Container(  
+      // margin: EdgeInsets.only(top: 10.h),  
+      height: 360.h,  
+      width: 360.w,  
+      padding: EdgeInsets.symmetric(vertical: 15.h, horizontal: 15.w),  
+      decoration: BoxDecoration(  
+        color: AppTheme.v6ThemeColors,  
+        borderRadius: BorderRadius.circular(15.r),  
+      ),  
+      child: Column(  
+        crossAxisAlignment: CrossAxisAlignment.start,  
+        children: [  
+          Text(  
+            S.of(context).splash_home_device_details_light,  
+            style: AppTheme.v6blank16bold,  
+          ),  
+          Container(  
+            margin: EdgeInsets.only(top: 10.h, bottom: 10.h),  
+            height: 43.h,  
+            padding: EdgeInsets.symmetric(vertical: 2.w, horizontal: 10.h),  
+            decoration: BoxDecoration(  
+                color: AppTheme.white,  
+                borderRadius: BorderRadius.circular(12.r)),  
+            child: Row(  
+              children: [  
+                Image.asset('assets/icons/png/15A亮度.png'),  
+                Expanded(  
+                  child: Slider(  
+                    min: 0,  
+                    max: 255,  
+                    value: currentLight,  
+                    activeColor: AppTheme.v6Blank,  
+                    onChanged: (value) {  
+                      setState(() {});  
+                      currentLight = value;  
+                      isAuto = false;  
+                    },  
+                    onChangeEnd: (value) {  
+                      setState(() {});  
+                      print(currentLight.toInt());  
+                      combinedProvider.sendLuminosity(currentLight.toInt());  
+                      // sendLuminosity  
+                    },  
+                  ),  
+                ),  
+              ],  
+            ),  
+          ),  
+          Text(  
+            S.of(context).splash_home_device_details_Speaker_brightness_display,  
+            style: AppTheme.v6blank16bold,  
+          ),  
+          Container(  
+            margin: EdgeInsets.only(top: 10.h),  
+            padding: EdgeInsets.symmetric(vertical: 5.w, horizontal: 10.h),  
+            decoration: BoxDecoration(  
+                color: AppTheme.white,  
+                borderRadius: BorderRadius.circular(12.r)),  
+            child: Row(  
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,  
+              children: List.generate(lightModes.length, (index) {  
+                return buildSpeakDisplayItem(  
+                    context: context, mode: lightModes[index]);  
+              }),  
+            ),  
+          ),  
+          Container(  
+            height: 43.h,  
+            margin: EdgeInsets.only(top: 20.h),  
+            padding: EdgeInsets.symmetric(vertical: 2.w, horizontal: 10.h),  
+            decoration: BoxDecoration(  
+                color: AppTheme.white,  
+                borderRadius: BorderRadius.circular(12.r)),  
+            child: Row(  
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,  
+              children: [  
+                Text(  
+                  S.of(context).splash_home_device_details_automatic,  
+                  style: AppTheme.v6blank16bold,  
+                ),  
+                CupertinoSwitch(  
+                  value: isAuto,  
+                  onChanged: (bool value) {  
+                    if (value) {  
+                      print('1');  
+                      combinedProvider.sendLuminosity(-1);  
+                      isAuto = value;  
+                      setState(() {});  
+                    } else {  
+                      combinedProvider.sendLuminosity(100);  
+                      isAuto = value;  
+                      setState(() {});  
+                    }  
+                  },  
+                )  
+              ],  
+            ),  
+          ),  
+        ],  
+      ),  
+    );  
+  }  
+  
+  ///亮度模块模式选择  
+  Widget buildSpeakDisplayItem({  
+    required BuildContext context,  
+    required LightMode mode,  
+  }) {  
+    return GestureDetector(  
+      onTap: () {  
+        print(lightMode);  
+        print(mode.light);  
+        isAuto = false;  
+        lightMode = mode.mode;  
+        combinedProvider.sendLuminosity(mode.light);  
+        setState(() {});  
+      },  
+      child: Column(  
+        children: [  
+          Image.asset(  
+            mode.img,  
+            width: 80.w,  
+            height: 114.h,  
+            fit: BoxFit.contain,  
+            scale: 4,  
+          ),  
+          SizedBox(  
+            width: 80.w,  
+            height: 20.h,  
+            child: FittedBox(  
+              fit: BoxFit.scaleDown,  
+              child: Text(  
+                AppTheme.getV6LightModeTitle(context, mode.str),  
+                textAlign: TextAlign.center,  
+              ),  
+            ),  
+          ),  
+          Container(  
+            width: 24.w,  
+            height: 24.w,  
+            decoration: BoxDecoration(  
+              border: Border.all(color: Colors.black),  
+              color: lightMode == mode.mode ? Colors.black : Colors.transparent,  
+              shape: BoxShape.circle,  
+            ),  
+            child: Center(child: Image.asset('assets/icons/png/对_2.png')),  
+          ),  
+        ],  
+      ),  
+    );  
+  }  
+  
+  /// 构建统一状态图标  
+  Widget deviceStatusIcon(  
+      {required bool isConnected,  
+      required int page,  
+      required String connectedImage,  
+      required String disconnectedImage}) {  
+    return GestureDetector(  
+      onTap: () {  
+        controller.jumpToPage(page);  
+        currentPage = page;  
+        setState(() {});  
+      },  
+      child: Container(  
+        width: 70.w,  
+        height: 70.h,  
+        decoration: BoxDecoration(  
+          color: Colors.transparent,  
+          border: currentPage == page  
+              ? Border.all(color: Colors.white, width: 2)  
+              : Border.all(color: Colors.transparent),  
+          borderRadius: BorderRadius.circular(16.r),  
+        ),  
+        child: Center(  
+          child: Container(  
+            width: 55.w,  
+            height: 55.h,  
+            decoration: BoxDecoration(  
+              color: AppTheme.v6E7,  
+              borderRadius: BorderRadius.circular(16.r),  
+            ),  
+            child: Image.asset(  
+              disconnectedImage,  
+              scale: 4,  
+            ),  
+          ),  
+        ),  
+      ),  
+    );  
+  }  
+}  
+  
+class ShutdownCard extends StatelessWidget {  
+  const ShutdownCard({  
+    super.key,  
+    required this.blueClassicProvider,  
+  });  
+  
+  final BlueClassicProvider blueClassicProvider;  
+  
+  @override  
+  Widget build(BuildContext context) {  
+    return Container(  
+        height: 360.h,  
+        width: 360.w,  
+        padding: EdgeInsets.symmetric(vertical: 15.h, horizontal: 15.w),  
+        decoration: BoxDecoration(  
+          color: AppTheme.v6ThemeColors,  
+          borderRadius: BorderRadius.circular(15.r),  
+        ),  
+        child: Center(  
+          child: Row(  
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,  
+            children: [  
+              ShutButton(  
+                onTap: blueClassicProvider.shutdown,  
+                icon: 'assets/icons/png/pngX4/电源_12.png',  
+                text: S.of(context).splash_home_device_details_shutdown,  
+                title: 'dialog_inquire_shutdown',  
+                content: 'dialog_inquire_shutdown_why',  
+                yes: 'dialog_inquire_shutdown',  
+                no: 'dialog_inquire_no',  
+              ),  
+              ShutButton(  
+                onTap: blueClassicProvider.reboot,  
+                icon: 'assets/icons/png/pngX4/刷新_1.png',  
+                text: S.of(context).splash_home_device_details_reboot,  
+                title: 'dialog_inquire_reboot',  
+                content: 'dialog_inquire_reboot_why',  
+                yes: 'dialog_inquire_reboot',  
+                no: 'dialog_inquire_no',  
+              ),  
+            ],  
+          ),  
+        ));  
+  }  
+}  
+  
+class ShutButton extends StatefulWidget {  
+  const ShutButton({  
+    super.key,  
+    required this.onTap,  
+    required this.icon,  
+    required this.text,  
+    required this.title,  
+    required this.content,  
+    required this.yes,  
+    required this.no,  
+  });  
+  final Function onTap;  
+  final String icon;  
+  final String text;  
+  final String title;  
+  final String content;  
+  final String yes;  
+  final String no;  
+  @override  
+  State<ShutButton> createState() => _ShutButtonState();  
+}  
+  
+class _ShutButtonState extends State<ShutButton> {  
+  @override  
+  Widget build(BuildContext context) {  
+    return GestureDetector(  
+      onTap: () {  
+        OverlayManager.showDialogOverlay(  
+            customCallback: () {  
+              widget.onTap();  
+            },  
+            title: widget.title,  
+            no: widget.no,  
+            yes: widget.yes,  
+            content: widget.content);  
+      },  
+      child: SizedBox(  
+        width: 87.w,  
+        height: 124.h,  
+        child: Column(  
+          children: [  
+            Container(  
+              width: 87.w,  
+              height: 84.h,  
+              decoration: BoxDecoration(  
+                borderRadius: BorderRadius.circular(14.r),  
+                color: AppTheme.white,  
+              ),  
+              child: Center(  
+                child: Image.asset(  
+                  widget.icon,  
+                  width: 42.w,  
+                  height: 42.h,  
+                  fit: BoxFit.contain,  
+                ),  
+              ),  
+            ),  
+            SizedBox(  
+              height: 10.h,  
+            ),  
+            SizedBox(  
+              width: 87.w,  
+              child: FittedBox(  
+                fit: BoxFit.scaleDown,  
+                child: Text(  
+                  widget.text,  
+                  style: TextStyle(fontSize: 20.sp),  
+                ),  
+              ),  
+            ),  
+          ],  
+        ),  
+      ),  
+    );  
+  }  
+}  
+  
+class LightMode {  
+  final int mode;  
+  final String img;  
+  final String str;  
+  final int light;  
+  LightMode({  
+    required this.mode,  
+    required this.img,  
+    required this.str,  
+    required this.light,  
+  });  
+}  
+  
+// /// 构建蓝牙状态图标  
+// Widget buildDeviceStatusIcon(  
+//     bool isConnected, String connectedImage, String disconnectedImage) {  
+//   return Container(  
+//     width: 60.w,  
+//     height: 60.h,  
+//     decoration: BoxDecoration(  
+//       color: AppTheme.white,  
+//       borderRadius: BorderRadius.circular(16.r),  
+//     ),  
+//     child: isConnected  
+//         ? Image.asset(  
+//       connectedImage,  
+//       scale: 4,  
+//     )  
+//         : Image.asset(  
+//       disconnectedImage,  
+//       scale: 4,  
+//     ),  
+//   );  
+// }  
+//  
+// /// 构建蓝牙连接控制按钮  
+// Widget buildConnectionControl(String address) {  
+//   return Container(  
+//     width: 94.w,  
+//     height: 78.h,  
+//     decoration: BoxDecoration(  
+//       color: AppTheme.white,  
+//       borderRadius: BorderRadius.circular(16.r),  
+//     ),  
+//     child: Column(  
+//       children: [  
+//         FeedbackImage(  
+//           onTap: () async {  
+//             final isConnected =  
+//                 blueClassicProvider.v6Connections[address]?.isConnected ??  
+//                     false;  
+//             if (isConnected) {  
+//               await blueClassicProvider.v6disconnectFromDevice(address);  
+//             } else {  
+//               await blueClassicProvider.v6ConnectImageFinalToDevice(  
+//                   blueInfo, context);  
+//               await blueClassicProvider  
+//                   .getWifiNetworksAndSetIP(widget.address);  
+//             }  
+//           },  
+//           img:  
+//           blueClassicProvider.v6Connections[address]?.isConnected ?? false  
+//               ? 'assets/design/Subtract_connect.png'  
+//               : 'assets/icons/png/Frame_40.png',  
+//         ),  
+//       ],  
+//     ),  
+//   );  
+// }  
+//  
+// /// 构建设备信息部分  
+// Widget buildDeviceInfoSection() {  
+//   return Container(  
+//     width: 1.sw,  
+//     height: 203.h,  
+//     margin: EdgeInsets.only(top: 10.h),  
+//     padding: EdgeInsets.all(8.w),  
+//     decoration: BoxDecoration(  
+//       color: AppTheme.white,  
+//       borderRadius: BorderRadius.circular(16.r),  
+//     ),  
+//     child: Column(  
+//       children: [  
+//         // 可以在这里添加更多的设备信息  
+//       ],  
+//     ),  
+//   );  
+// }
+```
