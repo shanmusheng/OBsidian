@@ -51,3 +51,15 @@ double angleFun4(int layer) {
 先考虑上划
 3   delta:     0--->-0.5
 2   delta:    -1--->-1.5
+
+
+```
+double deltaIndex = getShortestDelta(  
+    currentIndex, cards.indexOf(card).toDouble(), cards.length);  
+double animationTargetIndex =  
+    currentIndex + deltaIndex; // 改为 currentIndex + deltaIndex  
+animateToIndex(  
+    targetIdx: animationTargetIndex,  
+    popTargetIdx: animationTargetIndex);
+    //点击移动
+```
